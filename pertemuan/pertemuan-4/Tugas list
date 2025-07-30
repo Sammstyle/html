@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Belajar List</title>
+    <style>
+      img {
+        width: 50px;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contoh list HTML dengan gambar</h1>
+
+    <h2>Buah-buahan favorit</h2>
+    <ul>
+      <li>
+        <img src="https://cdn-icons-png.freepik.com/512/8343/8343149.png" alt="Apel" />
+        Apel
+      </li>
+      <li>
+        <img src="https://cdn-icons-png.freepik.com/512/8343/8343149.png" alt="Pisang" />
+        Pisang
+      </li>
+      <li>
+        <img src="https://cdn-icons-png.freepik.com/512/8343/8343149.png" alt="Jeruk" />
+        Jeruk
+      </li>
+    </ul>
+
+    <h3>Langkah membuat kopi</h3>
+    <ol>
+      <li>
+        <img src="https://cdn-icons-png.freepik.com/512/8343/8343149.png" alt="Giling" />
+        Giling biji kopi
+      </li>
+      <li>
+        <img src="https://cdn-icons-png.freepik.com/512/8343/8343149.png" alt="Air" />
+        Panaskan air
+      </li>
+      <li>
+        <img src="https://cdn-icons-png.freepik.com/512/8343/8343149.png" alt="Seduh" />
+        Seduh dan sajikan
+      </li>
+    </ol>
+
+    <h3>Istilah teknologi (menggunakan Definition List / &lt;dl&gt;)</h3>
+    <dl>
+      <dt>
+        <img src="https://cdn-icons-png.freepik.com/512/8343/8343149.png" alt="Cloud" />
+        Cloud Computing
+      </dt>
+      <dd>Penyimpanan dan pengolahan data melalui internet.</dd>
+
+      <dt>
+        <img src="https://cdn-icons-png.freepik.com/512/8343/8343149.png" alt="AI" />
+        Artificial Intelligence (AI)
+      </dt>
+      <dd>Kemampuan komputer untuk meniru kecerdasan manusia.</dd>
+
+      <dt>
+        <img src="https://cdn-icons-png.freepik.com/512/8343/8343149.png" alt="IoT" />
+        Internet of Things (IoT)
+      </dt>
+      <dd>Koneksi antara perangkat fisik melalui internet.</dd>
+    </dl>
+
+    <h2>Membuat List Style dengan Gambar</h2>
+    <h3>Mengubah Tipe List Menjadi Gambar</h3>
+    <ul style="list-style-image: url('https://assets.ubuntu.com/v1/dbf71c80-favicon.ico');">
+      <li>Apel</li>
+      <li>Pisang</li>
+      <li>Jeruk</li>
+    </ul>
+  </body>
+</html>

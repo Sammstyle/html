@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Belajar List</title>
+</head>
+<body>
+
+  <h1>Buah-buahan</h1>
+
+  <h2>Ordered List</h2>
+  <ol type="A">
+    <li>Apel</li>
+    <li>Pisang</li>
+    <li>Jeruk</li>
+  </ol>
+
+  <hr>
+
+  <h2>Unordered List</h2>
+  <ul type="circle">
+    <li>Apel</li>
+    <li>Pisang</li>
+    <li>Jeruk</li>
+  </ul>
+
+  <hr>
+
+  <h3>Mengubah Tipe List Menjadi Gambar</h3>
+  <ul style="list-style-image: url('https://assets.ubuntu.com/v1/dbf71c80-favicon.ico');">
+    <li>Semangka</li>
+    <li>Anggur</li>
+    <li>Durian</li>
+    <li>Mangga</li>
+    <li>Nanas</li>
+  </ul>
+
+  <hr>
+
+  <h3>Descriptive List</h3>
+  <dl>
+    <dt>Apel</dt>
+    <dd>Buah berwarna merah atau hijau, rasanya manis atau asam.</dd>
+
+    <dt>Pisang</dt>
+    <dd>Buah kuning panjang yang lembut dan kaya kalium.</dd>
+
+    <dt>Jeruk</dt>
+    <dd>Buah berwarna oranye, kaya akan vitamin C.</dd>
+
+    <dt>Durian</dt>
+    <dd>Buah berkulit duri dan beraroma kuat, dijuluki raja buah.</dd>
+
+    <dt>Anggur</dt>
+    <dd>Buah kecil yang tumbuh bergerombol, bisa dimakan langsung atau dibuat jus.</dd>
+  </dl>
+  <hr>
+  
+
+  <h2>Daftar Pelajaran dan Submateri</h2>
+  <ol>
+    <li>Matematika
+      <ol type="a">
+        <li>Aljabar</li>
+        <li>Geometri</li>
+      </ol>
+    </li>
+    <li>IPA
+      <ol type="a">
+        <li>Fisika</li>
+        <li>Biologi</li>
+      </ol>
+    </li>
+  </ol>
+
+</body>
+</html>
