@@ -1,0 +1,117 @@
+    <!DOCTYPE html>
+    <html lang="id">
+    <head>
+        <title>Form pada HTML</title>
+    </head>
+    <body>
+        <h1>Form pada HTML</h1>
+        <form action="" method=""></form>
+        <fieldset>
+        <p>
+                <legend>Login</legend>
+        <label>Username</label>
+        <Input type="text" name="Username" placeholder="Username..." />
+        </p>
+        <p>
+        <label>Password</label>
+        <input type="text" name="Password" placeholder="Password.." />
+        </p>
+        <p>
+        <label
+            ><input type="checkbox" name="remember" value="remember" /> Remaber me</label>
+        </p>
+        <p>
+        <input type="submit" name="submit" value="Login" />
+        </p>
+    </Fieldset>
+
+    <form action="contact.php" method="post"></form>
+    
+    <fieldset>
+        <legend>Contact</legend>
+            <p>
+                <label>Name:</label>
+                <input type="Text" name="Name" placeholder="Your name..">
+            </p>
+            <p>
+                <label>Subject:</label>
+                <input type="Text" name="Subject" placeholder="Subject..">
+            </p>
+            <p>
+                <label>Email:</label>
+                <input type="Text" name="Email" placeholder="Your Email..">
+            </p>
+        <p>
+            <input type="submit" name="submit" value="Send">
+        </p>
+    </fieldset>
+    <p></p>
+    <form action="contact.php" method="post"></form>
+    
+    <fieldset>
+        <legend>Registrasi</legend>
+        <p>
+            <label>Name:</label><br>   
+            <input type="Text" name="Name" placeholder="Your name..">
+        </p>
+        <p>
+            <label>Username:</label><br>
+            <input type="Text" name="Subject" placeholder="Username..">
+        </p>
+        <p>
+            <label>Email:</label><br>
+            <input type="Text" name="Email" placeholder="Your Email..">
+        </p>
+
+        <p>
+            <label>Password</label><br>
+        <input type="text" name="Password" placeholder="Password.." />
+        </p>
+    <p>
+    <label>Jenis kelamin:</label><br>
+    <label><input type="radio" name="Jenis_kelamin" value="laki-laki"> Laki-laki</label><br>
+    <label><input type="radio" name="Jenis_kelamin" value="perempuan"> Perempuan</label>
+    </p>
+    <label>Agama:</label>
+    <select name="Agama">
+        <option>Select</option>
+    <option value="islam">Islam</option>
+    <option value="Kristen">Kristen</option>
+    <option value="Budha">Budha</option>
+    <option value="Hindu">Hindu</option>
+    <option value="Katolik">Katolik</option>
+    </select>
+    <p>
+        <label>Biografi:</label><br>
+        <textarea name="Biografi" placeholder="Isi bidang berikut "></textarea>
+    </p>
+    <p>
+        <input type="submit" name="submit" value="Daftar">
+    </p>
+    </fieldset>
+    <form action="contact.php" method="post"></form>
+    
+    <fieldset>
+        <legend>Form</legend>
+
+    <form>
+    <div>
+            <label>Alamat Web:</label><br>
+            <input type="url" name="Nama" placeholder="Past Your url ..">
+    </div>
+    <div>
+            <label>Tanggal lahir:</label><br>
+            <input type="date" name="Tanggal">
+    </div>
+    <div>
+            <label>Umur:</label><br>
+            <input type="Number" min="10" max="10" name="Umur" placeholder="Age">
+    </div>
+    <p></p>
+    <div>
+        <input type="submit" name="submit" value="Send">
+    </div>  
+        
+    </form>
+    </body>
+    </html>

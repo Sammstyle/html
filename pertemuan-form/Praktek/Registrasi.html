@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Form pada HTML</title>
+</head>
+<body>
+    <h1>Form Registrasi HTML</h1>
+
+    <!-- FORM REGISTRASI -->
+    <form action="contact.php" method="post">
+        <fieldset>
+            <legend>Registrasi</legend>
+            <div>
+                <label>Name:</label><br>
+                <input type="text" name="Name" placeholder="Your name..." />
+            </div>
+            <div>
+                <label>Username:</label><br>
+                <input type="text" name="Username" placeholder="Username..." />
+            </div>
+            <div>
+                <label>Email:</label><br>
+                <input type="email" name="Email" placeholder="Your Email..." />
+            </div>
+            <div>
+                <label>Password:</label><br>
+                <input type="password" name="Password" placeholder="Password..." />
+            </div>
+            <div>
+                <label>Jenis kelamin:</label><br>
+                <label><input type="radio" name="Jenis_kelamin" value="laki-laki" /> Laki-laki</label><br>
+                <label><input type="radio" name="Jenis_kelamin" value="perempuan" /> Perempuan</label>
+            </div>
+            <div>
+                <label>Agama:</label><br>
+                <select name="Agama">
+                    <option value="">Pilih</option>
+                    <option value="Islam">Islam</option>
+                    <option value="Kristen">Kristen</option>
+                    <option value="Budha">Budha</option>
+                    <option value="Hindu">Hindu</option>
+                    <option value="Katolik">Katolik</option>
+                </select>
+            </div>
+            <div>
+                <label>Biografi:</label><br>
+                <textarea name="Biografi" placeholder="Isi bidang berikut..."></textarea>
+            </div>
+            <div>
+                <input type="submit" name="submit" value="Daftar" />
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
