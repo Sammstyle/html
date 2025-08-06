@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title>PHTML LINK</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      #section2 {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://abudzarproject.com/ghifary/"target="_blank">Klik Website ana <link rel="stylesheet" href=""></a><br>
+    <a href="https://abudzar.ponpes.id/"target="_blank">Website pondok</a>
+    <p></p>
+    <a href="Azzam.docx" download style="color:red;" title="ini link judol">download link nya disini</a>
+
+
+    <h2 id="section2">Bagian Kedua</h2
+  </body>
+</html>

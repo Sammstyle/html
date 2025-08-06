@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dzikir Pagi & Petang</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #fff3e0);
+      color: #333;
+      line-height: 1.6;
+    }
+    .page {
+      display: none;
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .page.active {
+      display: block;
+    }
+    header {
+      background: #00796b;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      margin-bottom: 1rem;
+      color: #004d40;
+      font-size: 1.4rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #00796b;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin: 2rem auto;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #004d40;
+    }
+    .dzikir-item {
+      background: #fafafa;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-left: 6px solid #00796b;
+      border-radius: 8px;
+      transition: 0.3s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .arabic {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #000;
+      direction: rtl;
+      text-align: right;
+    }
+    .indo {
+      margin-top: 0.5rem;
+      color: #444;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dzikir Pagi & Petang</h1>
+  </header>
+
+  <div class="page active" id="halaman-utama">
+    <div style="text-align:center">
+      <p>Silakan pilih waktu dzikir:</p>
+      <button class="btn" onclick="showPage('pagi')">Dzikir Pagi</button>
+      <button class="btn" onclick="showPage('petang')">Dzikir Petang</button>
+    </div>
+  </div>
+
+  <div class="page" id="halaman-pagi">
+    <h2>Dzikir Pagi</h2>
+    <div class="dzikir-item">
+      <div class="arabic">سُبْحَانَ اللَّهِ</div>
+      <div class="indo">Dibaca 33 kali</div>
+    </div>
+    <div class="dzikir-item">
+      <div class="arabic">الْـحَمْدُ لِلَّهِ</div>
+      <div class="indo">Dibaca 33 kali</div>
+    </div>
+    <div class="dzikir-item">
+      <div class="arabic">اللَّهُ أَكْبَرُ</div>
+      <div class="indo">Dibaca 34 kali</div>
+    </div>
+    <div class="dzikir-item">
+      <div class="arabic">أَسْتَغْفِرُ اللّٰهَ</div>
+      <div class="indo">Dibaca sesuai kebutuhan</div>
+    </div>
+    <button class="btn" onclick="showPage('utama')">Kembali</button>
+  </div>
+
+  <div class="page" id="halaman-petang">
+    <h2>Dzikir Petang</h2>
+    <div class="dzikir-item">
+      <div class="arabic">سُبْحَانَ اللَّهِ</div>
+      <div class="indo">Dibaca 33 kali</div>
+    </div>
+    <div class="dzikir-item">
+      <div class="arabic">الْـحَمْدُ لِلَّهِ</div>
+      <div class="indo">Dibaca 33 kali</div>
+    </div>
+    <div class="dzikir-item">
+      <div class="arabic">اللَّهُ أَكْبَرُ</div>
+      <div class="indo">Dibaca 34 kali</div>
+    </div>
+    <div class="dzikir-item">
+      <div class="arabic">لَا إِلَٰهَ إِلَّا اللَّهُ</div>
+      <div class="indo">Dibaca sesuai kebutuhan</div>
+    </div>
+    <button class="btn" onclick="showPage('utama')">Kembali</button>
+  </div>
+
+  <footer>
+    &copy; 2025 Dzikir Harian by Ghifary
+  </footer>
+
+  <script>
+    function showPage(page) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      if (page === 'pagi') {
+        document.getElementById('halaman-pagi').classList.add('active');
+      } else if (page === 'petang') {
+        document.getElementById('halaman-petang').classList.add('active');
+      } else {
+        document.getElementById('halaman-utama').classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>

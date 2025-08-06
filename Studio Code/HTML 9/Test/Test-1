@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pertemuan</title>
+  </head>
+  <body>
+    <h1>Pertemuan 1</h1>
+    <p>Ayo Kita <b>Ngoding Bersama</b></p>
+    <hr />
+    <!-- Ayo main -->
+    <p><b>Saya</b> Azzam Al Ghifary. Saya adalah <b>Programmer</b></p>
+
+    <h1>Judul Hero</h1>
+    <p>Lorem ipsum dolor sit amet.</p>
+
+    <h2>About</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+
+    <h3>Contact</h3>
+    <p>Lorem ipsum dolor sit amet.</p>
+
+    <h4>Blog</h4>
+    <p>Lorem ipsum dolor sit amet.</p>
+
+    <h5>Services</h5>
+    <p>Lorem ipsum dolor sit amet.</p>
+
+    <h6>DLL</h6>
+    <p>Lorem ipsum dolor sit amet.</p>
+
+    <hr />
+
+    <h1>
+      <u>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia fugiat
+      blanditiis libero? Soluta labore laborum illum voluptatibus tenetur
+      sequi error, libero necessitatibus!</u>
+    </h1>
+
+    <p>
+      <i>
+        Id debitis distinctio in qui aliquam veritatis recusandae sed, dicta
+        pariatur iste alias cumque error numquam soluta facere quidem? Quod
+        inventore quaerat voluptates maxime consequatur, et qui excepturi.
+      </i>
+    </p>
+
+    <hr />
+
+    <h2>Contoh Tag Tambahan</h2>
+
+    <p><small>Lorem ipsum dolor sit amet.</ini></small></p>
+    <p><strong>Lorem ipsum dolor sit amet consectetur.</strong></p>
+    <p>Lorem ipsum: H<sub>2</sub>O → tag &lt;sub&gt;</p>
+    <p>10<sup>2</sup> = 100 → tag &lt;sup&gt;</p>
+    <p><ins>Teks yang disisipkan (digarisbawahi) pakai &lt;ins&gt;</ins></p>
+    <p><del>Teks dicoret pakai &lt;del&gt;</del></p>
+    <p><mark>Teks disorot pakai &lt;mark&gt;</mark></p>
+
+  </body>
+</html>

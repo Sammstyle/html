@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title>Petualangan di Dunia Coding</title>
+    <h1>Petualangan di dunia coding</h1>
+    <h2>Langkah Awal Scorang Petualang Kode</h1>
+        <p>Di dunia digital ini, menjadi <b>pengembang web</b> adalah sebuah
+      perjalanan seru. Mulanya, kita belajar dari hal-hal sederhana seperti
+      membuat <b>paragraf</b>, <i>menulis heading</i>, dan <u>mengatur teks</u>.</p>Jangan takut untuk <mark>mencoba</mark>, karena setiap kesalahan adalah
+      pelajaran. Bahkan saat kode tidak berjalan, kamu tetap belajar!
+      <em>Terus melangkah!</em>
+      <hr>
+      <h3>Format Teks yang Sering Digunakan</h3>
+      <p>Kamu bisa memberi penekanan dengan <b>bold</b>, menambahkan <i>italic</i>,
+      atau menandai sesuatu dengan <mark>highlight</mark>.</p>
+      <p>Informasi yang tidak lagi berlaku bisa <del>dicoret</del> dan informasi baru bisa ditambahkan
+      dengan <u>garis bawah</u>
+      <p>
+      <small>Untuk catatan tambahan, gunakan teks berwarna kecil seperti ini.</small>
+      </p>
+      <p>jadi <b>saat menjelajah </b>dunia coding!Dunia ini luas dan penuh kejaiban menantiuntuk di eksplorasi </p>
+      <p><small>Copyright © 2023</small>
+</p>
+  </body>
+</html>

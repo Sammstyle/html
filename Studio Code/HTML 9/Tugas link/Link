@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title>PHTML LINK</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      #section2 {
+        margin-top: 100px; /* Tambah ruang ke atas */
+        padding: 50px;
+        background-color: #f0f0f0;
+        height: 300px; /* Tinggi bagian 2 */
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://abudzar.ponpes.id/">abudzar.ponpes.id</a><br>
+    <a href="#section2">Lompat ke Bagian Kedua</a>
+
+    <hr>
+
+    <h2 id="section2">Bagian Kedua</h2>
+    <p>Ini adalah isi dari bagian kedua.</p>
+  </body>
+</html>
