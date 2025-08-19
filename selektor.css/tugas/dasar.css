@@ -1,0 +1,65 @@
+/* Reset sederhana */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: #fdfdfd;
+  color: #222;
+}
+
+/* Title Section */
+.title {
+  text-align: center;
+  padding: 30px 15px;
+  background-color: #0066cc;
+  color: #fdfdfd;
+}
+.main-title {
+  margin: 0;
+  font-size: 28px;
+}
+.subtitle {
+  margin-top: 10px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* Intro Section */
+.intro {
+  padding: 20px;
+  text-align: center;
+}
+.hero-img {
+  width: 80%;
+  width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+.content {
+  text-align: justify;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Section Sahabat */
+.sahabat {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+.sahabat-title {
+  color: #0066cc;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+/* Footer */
+.footer {
+  color: #0066cc;
+  margin: 20px;
+}
+/* i */
+i {
+  color: green;
+}

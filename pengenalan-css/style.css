@@ -1,0 +1,44 @@
+p {
+    font-family:'Times New Roman';
+    line-height: 1.75em;
+    font-size: 20px;
+}
+
+i {
+    font-family: sans;
+    color: orange;
+}
+    
+h2 {
+    
+    font-family:  Helvetica;
+        font-size: 16px;
+        line-height: 1.6em;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #000066 50%, #669933 50%);
+        color: #ffffff;
+      
+}
+color1{
+    font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      margin: 0;
+      padding: 5px;
+    color: #000066;
+    font-size: 35px
+}
+color2{
+    font-family: 'popins',sans-serif;
+    font-size: 20px;
+    color: #669933;
+
+}
+img{
+    display: flex; /* Biar logo dan teks sejajar */
+      align-items: center; /* Rata tengah secara vertikal */
+      gap: 15px; /* Jarak antara logo dan teks */
+}
+bk {
+    background: linear-gradient(to right,  #669933 50%);
+}

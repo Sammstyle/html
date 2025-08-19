@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio HTML Simpel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .audio-container {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        audio {
+            width: 100%;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Audio HTML Simpel</h1>
+        
+        <div class="audio-container">
+            <h3>Contoh Audio MP3</h3>
+            <audio controls>
+                <source src="Asset.html/sample-audio.mp3" type="audio/mpeg">
+                Browser Anda tidak support audio HTML5.
+            </audio>
+        </div>
+        
+        <div class="audio-container">
+            <h3>Contoh Audio WAV</h3>
+            <audio controls>
+                <source src="Asset.html/sample-audio.wav" type="audio/wav">
+                Browser Anda tidak support audio HTML5.
+            </audio>
+        </div>
+        
+        <div class="audio-container">
+            <h3>Contoh Audio OGG</h3>
+            <audio controls>
+                <source src="Asset.html/sample-audio.ogg" type="audio/ogg">
+                Browser Anda tidak support audio HTML5.
+            </audio>
+        </div>
+        
+        <div class="audio-container">
+            <h3>Audio dengan Multiple Format</h3>
+            <audio controls>
+                <source src="Asset.html/sample-audio.mp3" type="audio/mpeg">
+                <source src="Asset.html/sample-audio.ogg" type="audio/ogg">
+                <source src="Asset.html/sample-audio.wav" type="audio/wav">
+                Browser Anda tidak support audio HTML5.
+            </audio>
+        </div>
+        
+        <div class="audio-container">
+            <h3>Audio dengan Tombol Play Kustom</h3>
+            <audio id="myAudio" controls>
+                <source src="Asset.html/sample-audio.mp3" type="audio/mpeg">
+            </audio>
+            <br><br>
+            <button onclick="document.getElementById('myAudio').play()">Play</button>
+            <button onclick="document.getElementById('myAudio').pause()">Pause</button>
+            <button onclick="document.getElementById('myAudio').volume=0.5">Volume 50%</button>
+        </div>
+    </div>
+</body>
+</html>

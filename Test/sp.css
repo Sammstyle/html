@@ -1,0 +1,23 @@
+/* Style untuk judul besar */
+h2 {
+    color: red;
+}
+
+/* Style untuk sub judul kecil */
+h3 {
+    color: darkgreen;
+}
+
+/* Style untuk paragraf */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Style untuk footer */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+}

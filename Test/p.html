@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website with Loading Screen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Loading Screen Styles */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 30px;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        .loading-bar-container {
+            width: 200px;
+            height: 4px;
+            background-color: #333;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .loading-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #00ff88;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .loading-text {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .loading-percentage {
+            color: #00ff88;
+            font-weight: 600;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            display: none;
+            min-height: 100vh;
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .hero-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #00ff88;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .feature-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #00ff88;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .feature-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-logo">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ae8d3453-428e-4447-a47f-07c4a28fd5c4.png" alt="Company logo with geometric design in neon green on dark background">
+        </div>
+        <div class="loading-bar-container">
+            <div class="loading-bar" id="loading-bar"></div>
+        </div>
+        <div class="loading-text">Loading... <span class="loading-percentage" id="loading-percentage">0%</span></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <section class="hero-section">
+            <h1 class="hero-title">Selamat Datang di Website Kami</h1>
+            <p class="hero-description">Website kami menawarkan solusi inovatif untuk kebutuhan digital Anda. Temukan berbagai layanan berkualitas tinggi yang dirancang khusus untuk kesuksesan bisnis Anda.</p>
+            <a href="#" class="cta-button">Mulai Sekarang</a>
+        </section>
+
+        <section class="feature-section">
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3 class="feature-title">Analisis Mendalam</h3>
+                <p class="feature-description">Kami melakukan analisis menyeluruh untuk memberikan solusi yang paling tepat untuk bisnis Anda.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Performa Tinggi</h3>
+                <p class="feature-description">Layanan kami dioptimalkan untuk memberikan performa terbaik dan pengalaman pengguna yang luar biasa.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3 class="feature-title">Keamanan Terjamin</h3>
+                <p class="feature-description">Keamanan data Anda adalah prioritas utama kami dengan sistem perlindungan terkini.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2023 Website Premium. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Loading Animation Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingScreen = document.querySelector('.loading-screen');
+            const loadingBar = document.getElementById('loading-bar');
+            const loadingPercentage = document.getElementById('loading-percentage');
+            const mainContent = document.querySelector('.main-content');
+            
+            let progress = 0;
+            const totalTime = 3000; // 3 seconds total loading time
+            
+            // Simulate loading progress
+            const interval = setInterval(() => {
+                progress += 1;
+                loadingBar.style.width = progress + '%';
+                loadingPercentage.textContent = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    loadingScreen.style.opacity = '0';
+                    
+                    // After the fade out transition completes
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                        mainContent.style.display = 'block';
+                    }, 500);
+                }
+            }, totalTime / 100);
+            
+            // Alternatively, you can use this for real loading:
+            // window.addEventListener('load', function() {
+            //     loadingScreen.style.opacity = '0';
+            //     setTimeout(() => {
+            //         loadingScreen.style.display = 'none';
+            //         mainContent.style.display = 'block';
+            //     }, 500);
+            // });
+        });
+    </script>
+</body>
+</html>
+
