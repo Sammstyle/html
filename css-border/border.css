@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+}
+header {
+  text-align: center;
+  margin-bottom: 2em;
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(166, 64, 221, 1) 21.2%,
+    rgba(102, 165, 235, 1) 74.4%
+  );
+ color: aliceblue;
+  font-family: duummy;
+  font-size: 20px;
+  font-weight: bolder;
+  text-decoration: underline;
+
+  /* Bayangan teks multi warna */
+  text-shadow: 2px 2px 5px rgba(173, 0, 171, 1),
+    -2px -2px 5px rgba(15, 51, 92, 1);
+}
+
+article {
+  border: 2px solid fuchsia;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+footer {
+  text-align: center;
+  padding: 0.5em;
+  border: 2px solid rgb(141, 1, 211);
+}

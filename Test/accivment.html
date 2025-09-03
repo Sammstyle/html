@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Achievements — Ghifray</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#6c63ff; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Inter, Poppins, system-ui, sans-serif;
+      background:linear-gradient(180deg,var(--bg), #071026); color:#e6eef8;
+      padding:32px;
+    }
+    .wrap{max-width:980px;margin:0 auto}
+    h1{font-size:28px;margin:0 0 12px}
+    p.lead{color:var(--muted);margin:0 0 22px}
+
+    .row{display:flex;gap:16px;align-items:flex-start}
+    .col{flex:1}
+
+    .card{
+      background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.02));
+      padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.6);
+    }
+
+    form .field{display:flex;gap:8px;margin-bottom:10px}
+    form input[type="text"], form select, form textarea{
+      width:100%; padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);
+      background:var(--glass); color:inherit;
+    }
+    form textarea{min-height:70px; resize:vertical}
+
+    button{
+      background:linear-gradient(90deg,var(--accent), #4f46e5); border:0;padding:10px 14px;border-radius:10px;color:white;
+      cursor:pointer; font-weight:600;
+    }
+    button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06); color:var(--muted); font-weight:500}
+
+    .list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}
+    .achv{
+      background:rgba(255,255,255,0.02); padding:14px;border-radius:10px;position:relative;overflow:hidden;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .achv h3{margin:0 0 6px;font-size:16px}
+    .achv p{margin:0;color:var(--muted);font-size:14px}
+    .chip{display:inline-block;padding:6px 8px;border-radius:999px;background:rgba(108,99,255,0.12);color:var(--accent);font-size:13px;margin-top:10px}
+    .achv .remove{position:absolute;right:8px;top:8px;background:transparent;border:0;color:var(--muted);cursor:pointer}
+
+    .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    pre#md{background:#071827;color:#bcd1ff;padding:12px;border-radius:8px;overflow:auto;max-height:240px}
+
+    @media(max-width:700px){
+      .row{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Achievements</h1>
+    <p class="lead">Tambahkan prestasi yang mau kamu tampilkan di profil GitHub atau portofolio. Bisa diexport jadi Markdown untuk README.</p>
+
+    <div class="row">
+      <div class="col card">
+        <form id="form">
+          <div class="field">
+            <input id="title" type="text" placeholder="Judul (contoh: Juara 1 Web Design 2024)" required />
+          </div>
+          <div class="field">
+            <input id="issuer" type="text" placeholder="Pemberi / Event (contoh: Lomba Nasional)" />
+          </div>
+          <div class="field">
+            <select id="type">
+              <option value="award">🏆 Award</option>
+              <option value="cert">📜 Certificate</option>
+              <option value="contrib">💻 Contribution</option>
+              <option value="other">⭐ Lainnya</option>
+            </select>
+          </div>
+          <div class="field">
+            <textarea id="desc" placeholder="Deskripsi singkat (opsional)"></textarea>
+          </div>
+
+          <div class="controls">
+            <button type="submit">Tambah Achievement</button>
+            <button type="button" id="clear" class="ghost">Hapus Semua</button>
+          </div>
+        </form>
+
+        <div style="margin-top:18px">
+          <strong>Preview README</strong>
+          <pre id="md"># Achievements
+- Belum ada achievement.</pre>
+          <div style="margin-top:8px">
+            <button id="copyMd" class="ghost">Copy Markdown</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>Daftar Achievements</strong>
+          <span id="count" style="color:var(--muted)">0</span>
+        </div>
+
+        <div class="list" id="list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple achievements manager (localStorage)
+    const LS_KEY = 'ghifray_achievements_v1';
+    const form = adocument.getElementById('form');
+    const listEl = document.getElementById('list');
+    const mdEl = document.getElementById('md');
+    const countEl = document.getElementById('count');
+    const copyBtn = document.getElementById('copyMd');
+    const clearBtn = document.getElementById('clear');
+
+    function load(){
+      const raw = localStorage.getItem(LS_KEY);
+      return raw ? JSON.parse(raw) : [];
+    }
+    function save(arr){ localStorage.setItem(LS_KEY, JSON.stringify(arr)); render(); }
+
+    function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+
+    function render(){
+      const arr = load();
+      listEl.innerHTML = '';
+      countEl.textContent = arr.length;
+      if(arr.length === 0){
+        listEl.innerHTML = '<div style="color:var(--muted);padding:20px">Belum ada achievement. Tambah lewat form di kiri.</div>';
+        mdEl.textContent = "# Achievements\n- Belum ada achievement.";
+        return;
+      }
+
+      arr.forEach(a => {
+        const card = document.createElement('div');
+        card.className = 'achv';
+        card.innerHTML = `
+          <button class="remove" data-id="${a.id}" title="Hapus">✕</button>
+          <h3>${escapeHtml(a.title)}</h3>
+          <p>${escapeHtml(a.issuer || '')}</p>
+          <div class="chip">${typeEmoji(a.type)} ${typeLabel(a.type)}</div>
+          ${a.desc ? `<p style="margin-top:8px;color:var(--muted)">${escapeHtml(a.desc)}</p>` : ''}
+        `;
+        listEl.appendChild(card);
+      });
+
+      mdEl.textContent = toMarkdown(arr);
+    }
+
+    function typeEmoji(t){
+      return t === 'award' ? '🏆' : t === 'cert' ? '📜' : t === 'contrib' ? '💻' : '⭐';
+    }
+    function typeLabel(t){
+      return t === 'award' ? 'Award' : t === 'cert' ? 'Certificate' : t === 'contrib' ? 'Contribution' : 'Other';
+    }
+
+    function toMarkdown(arr){
+      let md = "# Achievements\n\n";
+      arr.forEach(a=>{
+        md += `- **${a.title}**${a.issuer ? ` — _${a.issuer}_` : ''}${a.desc ? `\n  - ${a.desc}` : ''}\n`;
+      });
+      md += `\n*Generated by Ghifray's achievements manager*`;
+      return md;
+    }
+
+    function escapeHtml(s){
+      return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+    }
+
+    // form submit
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      const title = document.getElementById('title').value.trim();
+      const issuer = document.getElementById('issuer').value.trim();
+      const type = document.getElementById('type').value;
+      const desc = document.getElementById('desc').value.trim();
+      if(!title) return alert('Judul harus diisi.');
+
+      const arr = load();
+      arr.unshift({ id: uid(), title, issuer, type, desc, created: new Date().toISOString() });
+      save(arr);
+      form.reset();
+    });
+
+    // delete single via event delegation
+    listEl.addEventListener('click', e=>{
+      if(e.target.matches('.remove')){
+        const id = e.target.dataset.id;
+        let arr = load();
+        arr = arr.filter(x => x.id !== id);
+        save(arr);
+      }
+    });
+
+    // clear all
+    clearBtn.addEventListener('click', ()=>{
+      if(confirm('Hapus semua achievement?')) {
+        localStorage.removeItem(LS_KEY);
+        render();
+      }
+    });
+
+    // copy markdown
+    copyBtn.addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText(mdEl.textContent);
+        alert('Markdown copied! Sekarang tinggal paste ke README.md di repo GitHub kamu.');
+      }catch(err){
+        alert('Gagal copy. Kamu bisa copy manual dari kotak Markdown.');
+      }
+    });
+
+    // initial render
+    render();
+  </script>
+</body>
+</html>

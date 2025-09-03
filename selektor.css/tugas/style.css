@@ -1,0 +1,88 @@
+h1 {
+  background: #3799bf;
+  background: linear-gradient(
+    90deg,
+    rgba(55, 153, 191, 1) 0%,
+    rgba(73, 11, 181, 1) 50%,
+    rgba(237, 83, 91, 1) 100%
+  );
+  text-align: center;
+  font-size: 50px;
+  font-family: serif;
+}
+/* Selector Tag */
+p {
+  color: blue;
+  border: 2px solid blue; /* border biru */
+  border-radius: 8px; /* sudut melengkung */
+  padding: 6px; /* biar teks ga nempel border */
+}
+
+/* Selector Class */
+.merah {
+  color: red;
+  border: 2px dashed red; /* border putus-putus */
+  border-radius: 12px; /* sudut lebih bulat */
+  padding: 6px;
+}
+
+/* Selector ID */
+#khusus {
+  font-weight: bold;
+  color: purple;
+  border: 3px double purple; /* border double */
+  border-radius: 20px; /* sudut bulat banget */
+  padding: 6px;
+}
+
+/* Pseudo-class (hover link) */
+a:hover {
+  color: green;
+  border-bottom: 2px solid green; /* garis bawah pas hover */
+}
+
+/* Pseudo-element (huruf pertama) */
+p::first-letter {
+  font-size: 24px;
+  color:tomato
+}
+
+/* Input Style */
+input[type="text"] {
+  padding: 8px;
+  border: 2px solid gray;
+  border-radius: 20px;
+  outline: none;
+}
+
+/* Hover input */
+input[type="text"]:hover {
+  border-color: blue;
+  background-color: #f0f8ff;
+}
+
+/* Focus input */
+input[type="text"]:focus {
+  border-color: linear-gradient(
+    90deg,
+    rgba(55, 153, 191, 1) 0%,
+    rgba(73, 11, 181, 1) 50%,
+    rgba(237, 83, 91, 1) 100%
+  );
+  background-color: #eaffea;
+}
+/*ini menggunakan googlr font*/
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.playwrite-mx-guides-regular {
+  font-family: "Playwrite MX Guides", cursive;
+  font-weight: 1000;
+  font-style: normal;
+}
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playwrite+MX+Guides&display=swap");
+.bungee-regular {
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

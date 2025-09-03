@@ -1,0 +1,42 @@
+body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #ddd;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: cyan;
+      margin-bottom: 20px;
+    }
+
+    /* Button */
+    .btn {
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      color: white;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #43e97b, #38f9d7);
+      transform: scale(1.05);
+    }
+
+    /* Teks hover */
+    .teks1, .teks2 {
+        back;
+      font-size: 20px;
+      margin: 15px 0;
+      transition: 0.3s;
+    }
+
+    .teks1:hover,
+    .teks2:hover {
+      color: white;
+    }

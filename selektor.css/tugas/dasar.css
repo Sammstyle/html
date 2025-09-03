@@ -12,8 +12,17 @@ body {
 .title {
   text-align: center;
   padding: 30px 15px;
-  background-color: #0066cc;
+  background: rgb(34, 193, 195);
+
   color: #fdfdfd;
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .main-title {
   margin: 0;
@@ -49,17 +58,34 @@ body {
   border-bottom: 1px solid #ddd;
 }
 .sahabat-title {
-  color: #0066cc;
+  color: #fdfdfd;
+  background: #2a7b9b;
+  background: linear-gradient(
+    90deg,
+    rgba(42, 123, 155, 1) 0%,
+    rgba(87, 199, 133, 1) 50%,
+    rgba(237, 221, 83, 1) 100%
+  );
   margin-bottom: 10px;
   font-size: 20px;
 }
 
 /* Footer */
 .footer {
-  color: #0066cc;
+  background: #020024;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 20px;
 }
 /* i */
 i {
   color: green;
+}
+.img{
 }

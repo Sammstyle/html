@@ -1,0 +1,247 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.logo img {
+  height: 40px;
+  align-self: center;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  position: relative;
+}
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+nav ul li:hover > a {
+  color: #218838;
+}
+
+/* Dropdown */
+nav ul li ul {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  min-width: 200px;
+  display: none;
+}
+nav ul li:hover ul {
+  display: block;
+}
+nav ul li ul li {
+  border-bottom: 1px solid #333;
+}
+nav ul li ul li a {
+  display: block;
+  padding: 10px;
+  color: #000;
+}
+nav ul li ul li a:hover {
+  background-color: #1d2fa3;
+  color: #fff;
+}
+
+/* Button Contact */
+.btn-contact {
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  background-color: #218838;
+  color: #fff;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background-color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn.primary {
+  background: #1d2fa3;
+  color: #fff;
+  border: 2px solid #1d2fa3;
+}
+.btn.secondary {
+  background: transparent;
+  color: #218838;
+  border: 2px solid #218838;
+}
+.beranda {
+  color: #218838;
+  font-weight: bold;
+}
+
+/* Hero */
+.hero {
+  padding: 60px 20px;
+  background: #fff;
+}
+.hero-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.hero-text {
+  text-align: center;
+  flex: 1 1 500px;
+}
+.hero-text h1 {
+  font-size: 80px;
+  font-weight: 1000;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.hero-text .blue {
+  color: #1d2fa3;
+}
+.hero-text .green {
+  color: #3ba94c;
+}
+.hero-text p {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 30px;
+  font-weight: 100;
+}
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Kenapa Harus Abudzar */
+.kenapadiabudzar {
+  text-align: center;
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.blue {
+  color: #1d2fa3;
+}
+.green {
+  color: #218838;
+}
+.pfasilitas {
+  margin: 70px auto;
+  text-align: center;
+  font-size: clamp(18px, 2.2vw, 28px);
+  line-height: 1.5;
+  color: #6b7280;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* Card Grid */
+.row {
+  display: flex;
+  justify-content: center; /* tengah */
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+.column {
+  flex: 1 1 250px;
+  max-width: 300px;
+}
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 20px 20px 35px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  line-height: 1.8;
+}
+.card b {
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  color: #333;
+}
+.card img {
+  max-width: 70px;
+  margin: 0 auto 15px;
+  display: block;
+}
+
+/* Profile Sekolah */
+.profilesekolah {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  color: #222;
+  line-height: 1.6;
+}
+.pondokabudzar {
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: left; /* ini bikin rata kiri */
+}
+.beritapondok {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+h2 {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+}
+.hitam {
+  color: #222;
+}
+.biru {
+  color: #163bbb;
+}
+.hijau {
+  color: #4a7c2e;
+}

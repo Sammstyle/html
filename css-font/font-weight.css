@@ -1,0 +1,39 @@
+body {
+      font-family: Arial, sans-serif; /* font default */
+      margin: 20px;
+    }
+
+    h1 {
+      font-family: "Poppins", sans-serif; /* font khusus */
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .serif {
+      font-family: "Times New Roman", serif;
+    }
+
+    .monospace {
+      font-family: "Courier New", monospace;
+    }
+
+    .besar {
+      font-size: 24px;
+    }
+
+    .kecil {
+      font-size: 12px;
+    }
+
+    .tebal {
+      font-weight: bold;
+    }
+
+    .miring {
+      font-style: italic;
+    }
+
+    .kapital {
+      text-transform: uppercase;
+    }
+  

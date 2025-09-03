@@ -1,0 +1,86 @@
+/* Selector Tag */
+div {
+  font-family: monospace;
+  color: blue;
+  font-weight: bold;
+  font-size: 20px;
+  border: 2px solid blue;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-family: monospace;
+  color: green;
+  font-style: italic;
+  border: 2px dashed green;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+/* Selector Class */
+.pink {
+  color: white;
+  background: linear-gradient(
+    90deg,
+    rgba(43, 35, 204, 1) 26%,
+    rgba(10, 191, 52, 1) 74%
+  );
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.text-white {
+  color: white;
+  font-variant: small-caps;
+  text-align: center;
+}
+
+.bg-teal {
+  background-image: radial-gradient(
+    circle farthest-corner at 6.3% 21.8%,
+    rgba(236, 6, 117, 1) 0%,
+    rgba(13, 32, 67, 1) 90%
+  );
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Selector ID */
+#header {
+  background-color: #b43a9e;
+  color: white;
+  height: 100px;
+  padding: 50px;
+  font-size: 30px;
+  font-family: lucida;
+  font-style: italic;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* Selector Atribut */
+input[type="text"] {
+  background:seagreen;
+  color:blueviolet;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  
+}
+
+/* Pseudo-class Hover */
+a {
+  display: inline-block;
+  margin-top: 10px;
+  color: orange;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: green;
+  
+}
