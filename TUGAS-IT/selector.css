@@ -12,7 +12,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 40px;
-  background: #fff;
+  background:white;
   border-bottom: 1px solid #eee;
 }
 .logo img {
@@ -111,7 +111,8 @@ nav ul li ul li a:hover {
 /* Hero */
 .hero {
   padding: 60px 20px;
-  background: #fff;
+  background-image: url(./WhatsApp-Image-2025-07-21-at-14.57.36.webp  );
+  background-size: cover;
 }
 .hero-container {
   max-width: 1200px;
@@ -223,10 +224,14 @@ nav ul li ul li a:hover {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: left; /* ini bikin rata kiri */
 }
+
 .beritapondok {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 50px;
+  margin: 100px auto;
+  font-size: clamp(18px, 2.2vw, 28px);/*clamp itu fungsinya kita mau mengubah besar font nya */
+  line-height: 1.5;
+  color:#000;
+  font-weight: 500;
+  letter-spacing: 0.2px;
 }
 h2 {
   font-family: Arial, sans-serif;
@@ -234,14 +239,5 @@ h2 {
   margin-top: 50px;
   font-size: 32px;
   font-weight: 700;
-  margin: 0;
-}
-.hitam {
-  color: #222;
-}
-.biru {
-  color: #163bbb;
-}
-.hijau {
-  color: #4a7c2e;
+  margin: 30px;
 }

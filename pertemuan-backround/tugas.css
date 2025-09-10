@@ -1,0 +1,108 @@
+body {
+  background-color: azure; /* warna dasar */
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  text-align: center;
+}
+h1 {
+  text-align: center;
+  font-size: 100px;
+  font-weight: 5000;
+  background: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(14, 174, 87, 1) 0%,
+    rgba(12, 116, 117, 1) 90%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+img {
+  width: 1000px;
+  border-radius: 15px; /* sudut tumpul */
+  display: block;
+  margin: 20px auto;
+}
+h2 {
+  background: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(14, 174, 87, 1) 0%,
+    rgba(12, 116, 117, 1) 90%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 30px;
+  font-size: 40px;
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+}
+p {
+  text-align: justify;
+  font-size: 16px;
+  margin: 10px 0;
+  font-family: "Poppins", sans-serif;
+}
+.logo img {
+  height: 40px;
+  align-self: center;
+}
+/* Reset */
+* {
+  margin: 0%;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav ul {
+  list-style: none;
+}
+
+/* Navigasi utama */
+nav {
+  background: #004d40;
+  padding: 10px;
+  line-height: 30px;
+  border-radius: 10px;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  display: block;
+}
+
+nav ul li a:hover {
+  background: white;
+  color: #004d40;
+  border-radius: 4px;
+}
+
+/* Submenu */
+nav ul li ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #004d40;
+  display: none;
+  min-width: 180px;
+}
+
+nav ul li:hover ul {
+  display: block;
+}
+
+nav ul li ul li a {
+  padding: 8px 12px;
+}
+
+nav ul li ul li a:hover {
+  background: white;
+}
