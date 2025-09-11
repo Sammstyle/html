@@ -1,5 +1,5 @@
 body {
-  background-color: azure; /* warna dasar */
+  background-color: azure;
   font-family: Arial, sans-serif;
   margin: 20px;
   text-align: center;
@@ -18,7 +18,7 @@ h1 {
 }
 img {
   width: 1000px;
-  border-radius: 15px; /* sudut tumpul */
+  border-radius: 15px;
   display: block;
   margin: 20px auto;
 }
@@ -45,7 +45,7 @@ p {
   height: 40px;
   align-self: center;
 }
-/* Reset */
+/* reset */
 * {
   margin: 0%;
   padding: 0;
@@ -61,6 +61,9 @@ nav {
   padding: 10px;
   line-height: 30px;
   border-radius: 10px;
+  position: sticky;
+  top: 10px;
+  z-index: 1000;
 }
 
 nav ul {
