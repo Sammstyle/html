@@ -1,0 +1,39 @@
+body {
+  padding: 0;
+  margin: 10px;
+}
+h1 {
+  font-weight: bold;
+  font-family: poppins, sans-serif;
+  font-weight: 900;
+}
+
+.light {
+  font-weight: lighter;
+}
+
+.bold {
+  font-weight: bold;
+}
+.font-big {
+  font-size: x-large;
+}
+
+.font-small {
+  font-size: small;
+}
+blockquote {
+  font-style: italic;
+  font-size: larger;
+  color: dodgerblue;
+}
+cite {
+  font-size: small;
+  font-style: normal;
+  color: fuchsia;
+}
+.font-sans{
+    color: blueviolet;
+    font-family: sans-serif;
+}
+
