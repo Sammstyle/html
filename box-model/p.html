@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corsair</title>
+    <link rel="stylesheet" href="Tugas Box Model.css">
+    <link
+      rel="icon"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8jVQQVJc7JTkPnOVUjMBIvJNIzEITtvYemQ&s"
+      type="image/x-icon"
+    />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Istok Web", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: #212121;
+  min-height: 100vh;
+  padding: 20px;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* sudah diperbaiki */
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  min-height: 480px;
+  background: #191919;
+  border-radius: 20px;
+  overflow: hidden;
+  padding-bottom: 30px;
+}
+
+.card::before {
+  content: ""; /* diperbaiki dari "none" */
+  position: absolute;
+  top: -55%;
+  width: 90%;
+  height: 100%;
+  background: #ffce00;
+}
+
+.card .imgBox {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  z-index: 1;
+}
+
+.card .contentBox {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.card .contentBox h3 {
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.card .contentBox .price {
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.card .contentBox .buy {
+  position: relative;
+  padding: 15px 40px;
+  margin-top: 15px;
+  color: #000000;
+  text-decoration: none;
+  background: #ffce00;
+  border-radius: 80px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.mouse {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Deskripsi Produk */
+.product-description {
+  margin-top: 40px;
+  background: #191919;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #f1f1f1;
+}
+
+.product-description h2 {
+  font-size: 25px;
+  font-family: poppins, serif;
+  font-weight: 700;
+  color: #ffce00;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.product-description line {
+  color: #ffce00;
+  font-family: poppins, sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.product-description p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.product-description ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.product-description ul li {
+  margin-bottom: 8px;
+  font-size: 16px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.product-description ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ffce00;
+}
+
+/* Feedback Card */
+.feedback {
+  margin-top: 40px;
+  background: #191919;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #f1f1f1;
+}
+
+.feedback h2 {
+  color: #ffce00;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Produk ke-1 -->
+      <div class="card">
+        <div class="imgBox">
+          <img
+            src="https://www.invidcomputers.com/images/0000000000412169000440548Corsair-Mouse-M65-RGB-Elite-White-5.png"
+            alt="Mouse Corsair M65 RGB Elite putih"
+            class="mouse"
+          />
+        </div>
+        <div class="contentBox">
+          <h3>Mouse Corsair M65</h3>
+          <h2 class="price">Rp 1.053.660</h2>
+          <a
+            href="https://www.corsair.com/us/en/explorer/gamer/mice/m65-rgb-ultra-wireless/?srsltid=AfmBOorhNwAGVpf9CO75peTJ2VVK5LDKhfmD0TpjH5ovRwJi25cpg0zx"
+            target="_blank"
+            class="buy"
+            >Buy Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Produk ke-2 -->
+      <div class="card">
+        <div class="imgBox">
+          <img
+            src="https://antesports.com/wp-content/uploads/2025/01/120_Air_Mini__B1_-removebg-preview.png"
+            alt="Ant Esports 120 Air Mini"
+            class="mouse"
+          />
+        </div>
+        <div class="contentBox">
+          <h3>Ant 120 Air Mini</h3>
+          <h2 class="price">Rp 2.899.000</h2>
+          <a
+            href="https://antesports.com/product/ant-esports-120-air-mini-m-atx-computer-case-gaming-cabinet-black/?srsltid=AfmBOoqrbSFLSxYl-fXwrhjNozf6AKj1RFfxrNcTftbiJ6k_x_j8uo5z"
+            target="_blank"
+            class="buy"
+            >Buy Now</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Deskripsi Produk 1 -->
+    <div class="product-description">
+      <h2>Mouse Corsair M65</h2>
+      <p>
+        <line>Mouse</line> nirkabel M65 RGB ULTRA WIRELESS dapat diisi daya
+        melalui kabel USB. Mouse ini menawarkan dua mode koneksi nirkabel:
+      </p>
+      <ul>
+        <li>
+          2.4GHz SLIPSTREAM Wireless: untuk performa gaming yang cepat dan
+          optimal.
+        </li>
+        <li>Bluetooth Wireless: untuk penggunaan sehari-hari yang efisien.</li>
+      </ul>
+    </div>
+
+    <!-- Deskripsi Produk 2 -->
+    <div class="product-description">
+      <h2>Ant 120 Air Mini</h2>
+      <p>
+        <line>Ant Esports 120 Air Mini Tower</line> (M-ATX / M-ITX, 3×120 mm
+        Static RGB Fan) adalah casing komputer berdesain ringkas yang cocok
+        untuk build gaming atau workstation mini.
+      </p>
+      <ul>
+        <li>
+          Kompatibilitas Motherboard: Mendukung motherboard Micro-ATX (M-ATX)
+          dan Mini-ITX.
+        </li>
+        <li>Dimensi: ± 34,8 × 28,5 × 43,0 cm (P × L × T)</li>
+        <li>Slot Ekspansi: 4 slot PCI untuk kartu tambahan</li>
+        <li>Drive Bay: 2 × 3,5″ HDD 1 × 2,5″ SSD</li>
+        <li>
+          Kipas Bawaan: 2 × 120 mm depan, 1 × 120 mm belakang (semua Static RGB)
+        </li>
+        <li>
+          Dukungan kipas tambahan: Depan 2 × 120 mm, Atas 2 × 120/140 mm,
+          Belakang 1 × 120 mm
+        </li>
+        <li>Panjang GPU: hingga ~ 305 mm</li>
+        <li>Tinggi CPU Cooler: hingga ~ 180 mm</li>
+        <li>Panel samping: kaca tempered transparan</li>
+        <li>
+          Port I/O: 2 × USB standar, 1 × USB 3.0, Audio in/out
+        </li>
+        <li>Berat: ± 3,73 kg; material kombinasi logam dan kaca</li>
+      </ul>
+    </div>
+
+    <!-- Feedback -->
+    <div class="feedback">
+      <h2>Feedback Pelanggan</h2>
+      <p><strong>Nama:</strong> Ghifary</p>
+      <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+      <p><strong>Komentar:</strong> Produk original, pengiriman cepat, recommended!</p>
+    </div>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corsair</title>
+    <link rel="stylesheet" href="Tugas Box Model.css">
+    <link
+      rel="icon"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8jVQQVJc7JTkPnOVUjMBIvJNIzEITtvYemQ&s"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Produk ke-1 -->
+      <div class="card">
+        <div class="imgBox">
+          <img
+            src="https://www.invidcomputers.com/images/0000000000412169000440548Corsair-Mouse-M65-RGB-Elite-White-5.png"
+            alt="Mouse Corsair M65 RGB Elite putih"
+            class="mouse"
+          />
+        </div>
+        <div class="contentBox">
+          <h3>Mouse Corsair M65</h3>
+          <h2 class="price">Rp 1.053.660</h2>
+          <a
+            href="https://www.corsair.com/us/en/explorer/gamer/mice/m65-rgb-ultra-wireless/?srsltid=AfmBOorhNwAGVpf9CO75peTJ2VVK5LDKhfmD0TpjH5ovRwJi25cpg0zx"
+            target="_blank"
+            class="buy"
+            >Buy Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Produk ke-2 -->
+      <div class="card">
+        <div class="imgBox">
+          <img
+            src="https://antesports.com/wp-content/uploads/2025/01/120_Air_Mini__B1_-removebg-preview.png"
+            alt="Ant Esports 120 Air Mini"
+            class="mouse"
+          />
+        </div>
+        <div class="contentBox">
+          <h3>Ant 120 Air Mini</h3>
+          <h2 class="price">Rp 2.899.000</h2>
+          <a
+            href="https://antesports.com/product/ant-esports-120-air-mini-m-atx-computer-case-gaming-cabinet-black/?srsltid=AfmBOoqrbSFLSxYl-fXwrhjNozf6AKj1RFfxrNcTftbiJ6k_x_j8uo5z"
+            target="_blank"
+            class="buy"
+            >Buy Now</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Deskripsi Produk 1 -->
+    <div class="product-description">
+      <h2>Mouse Corsair M65</h2>
+      <p>
+        <line>Mouse</line> nirkabel M65 RGB ULTRA WIRELESS dapat diisi daya
+        melalui kabel USB. Mouse ini menawarkan dua mode koneksi nirkabel:
+      </p>
+      <ul>
+        <li>
+          2.4GHz SLIPSTREAM Wireless: untuk performa gaming yang cepat dan
+          optimal.
+        </li>
+        <li>Bluetooth Wireless: untuk penggunaan sehari-hari yang efisien.</li>
+      </ul>
+    </div>
+
+    <!-- Deskripsi Produk 2 -->
+    <div class="product-description">
+      <h2>Ant 120 Air Mini</h2>
+      <p>
+        <line>Ant Esports 120 Air Mini Tower</line> (M-ATX / M-ITX, 3×120 mm
+        Static RGB Fan) adalah casing komputer berdesain ringkas yang cocok
+        untuk build gaming atau workstation mini.
+      </p>
+      <ul>
+        <li>
+          Kompatibilitas Motherboard: Mendukung motherboard Micro-ATX (M-ATX)
+          dan Mini-ITX.
+        </li>
+        <li>Dimensi: ± 34,8 × 28,5 × 43,0 cm (P × L × T)</li>
+        <li>Slot Ekspansi: 4 slot PCI untuk kartu tambahan</li>
+        <li>Drive Bay: 2 × 3,5″ HDD 1 × 2,5″ SSD</li>
+        <li>
+          Kipas Bawaan: 2 × 120 mm depan, 1 × 120 mm belakang (semua Static RGB)
+        </li>
+        <li>
+          Dukungan kipas tambahan: Depan 2 × 120 mm, Atas 2 × 120/140 mm,
+          Belakang 1 × 120 mm
+        </li>
+        <li>Panjang GPU: hingga ~ 305 mm</li>
+        <li>Tinggi CPU Cooler: hingga ~ 180 mm</li>
+        <li>Panel samping: kaca tempered transparan</li>
+        <li>
+          Port I/O: 2 × USB standar, 1 × USB 3.0, Audio in/out
+        </li>
+        <li>Berat: ± 3,73 kg; material kombinasi logam dan kaca</li>
+      </ul>
+    </div>
+
+    <!-- Feedback -->
+    <div class="feedback">
+      <h2>Feedback Pelanggan</h2>
+      <p><strong>Nama:</strong> Ghifary</p>
+      <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+      <p><strong>Komentar:</strong> Produk original, pengiriman cepat, recommended!</p>
+    </div>
+  </body>
+</html>
