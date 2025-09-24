@@ -1,13 +1,75 @@
-.bg{
-    background-color: black;
-}
-.nav{
-    color:white;
-    text-align: center;
-    font-size: 40px;
+body {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://i.pinimg.com/736x/3d/3b/f7/3d3bf71868889a7ae1ea6c38cb3e246b.jpg");
+  background-size:cover;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
 
 }
-.nav-botton{
-    color: black;
-    
+
+nav {
+  font-variant: small-caps;
+  position: relative;
+  background-color: #171717;
+  padding: 5px;
+  border-radius: 50px ;
+}
+
+nav-text{
+font-variant: small-caps;
+font-weight: 200;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item {
+  margin: 0 20px;
+}
+
+.nav-link {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+}
+
+.nav-img {
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  background-image: url("./Vector.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nav-link:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.nav-link.active {
+  background-color: 404040;
+  color: #fff;
+ 
 }

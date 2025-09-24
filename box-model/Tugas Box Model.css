@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Istok Web", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: #212121;
+  min-height: 100vh;
+  padding: 20px;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  min-height: 480px;
+  background: #191919;
+  border-radius: 20px;
+  overflow: hidden;
+  padding-bottom: 30px;
+}
+
+.card::before {
+  content: "none";
+  position: absolute;
+  top: -55%;
+  width: 90%;
+  height: 100%;
+  background: #ffce00;
+}
+
+.card .imgBox {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  z-index: 1;
+}
+.card .imgBox- {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  z-index: 1;
+}
+
+.card .contentBox {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.card .contentBox h3 {
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.card .contentBox .price {
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.card .contentBox .buy {
+  position: relative;
+  padding: 15px 40px;
+  margin-top: 15px;
+  color: #000000;
+  text-decoration: none;
+  background: #ffce00;
+  border-radius: 80px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.mouse {
+  max-width: 100%;
+  height: auto;
+}
+
+/*Feedback*/
+
+.product-description {
+  margin-top: 40px;
+  background: #191919;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #f1f1f1;
+  font-family: Arial, sans-serif;
+}
+
+.product-description h2 {
+  color: #ffce00;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.product-description p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.product-description ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.product-description ul li {
+  margin-bottom: 8px;
+  font-size: 16px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.product-description ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ffce00;
+  font-size: 18px;
+}
