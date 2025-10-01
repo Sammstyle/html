@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Demo Sticky & Layout</title>
+    <style>
+      /* Reset sederhana */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Inter, system-ui, Arial, sans-serif;
+        line-height: 1.6;
+        color: #222;
+      }
+
+      /* HEADER sticky */
+      .header {
+        position: sticky;
+        top: 0;
+        height: 60px; /* ~56-64px */
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 0 20px;
+        background: linear-gradient(90deg, #0f172a, #0b2440);
+        color: #fff;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(2, 6, 23, 0.4);
+      }
+      .header .brand {
+        font-weight: 700;
+        letter-spacing: 0.6px;
+      }
+
+      main {
+        padding: 24px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      /* CARD dengan badge absolute */
+      .card {
+        position: relative; /* parent untuk badge absolute */
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #e6e9ef;
+        box-shadow: 0 6px 18px rgba(11, 22, 40, 0.06);
+        margin: 24px 0;
+        background: url());
+      }
+      .card .media {
+        display: block;
+        width: 100%;
+        height: 220px;
+        background: linear-gradient(135deg, #e9eef8, #f6f9ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #7b8aa3;
+        font-size: 18px;
+      }
+      .card .content {
+        padding: 16px;
+      }
+
+      .badge {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: #ff4d6d;
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+      }
+
+      /* Tag relative yang digeser (ruang tetap ada) */
+      .tag {
+        display: inline-block;
+        background: #eef2ff;
+        color: #2b3bff;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-weight: 600;
+        position: relative;
+        top: 4px; /* element digeser 4px ke bawah, ruang asli tetap ada */
+      }
+
+      /* Dua kotak tumpang tindih + z-index */
+      .overlap-wrap {
+        position: relative;
+        height: 180px;
+        margin: 32px 0;
+      }
+      .box-a,
+      .box-b {
+        position: absolute;
+        width: 220px;
+        height: 120px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+      }
+      .box-a {
+        left: 40px;
+        top: 20px;
+        background: linear-gradient(180deg, #4d9aff, #1766ff);
+        z-index: 1; /* dibawah */
+        transform: rotate(-3deg);
+        box-shadow: 0 10px 30px rgba(23, 102, 255, 0.18);
+      }
+      .box-b {
+        left: 120px;
+        top: 50px;
+        background: linear-gradient(180deg, #ff7a59, #ff4d4d);
+        z-index: 2; /* di atas box-a */
+        transform: rotate(2deg);
+        box-shadow: 0 14px 34px rgba(255, 77, 77, 0.18);
+      }
+
+      /* Tombol fixed di pojok kanan bawah */
+      .btn-fixed {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        width: 52px;
+        height: 52px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #06b6d4, #3b82f6);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(60, 130, 246, 0.25);
+        border: none;
+        z-index: 1200;
+        transition: transform 0.12s ease, box-shadow 0.12s ease;
+      }
+      .btn-fixed:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 36px rgba(60, 130, 246, 0.32);
+      }
+
+      /* small utility */
+      h1 {
+        margin-bottom: 12px;
+        font-size: 20px;
+        color: #0b2440;
+      }
+      p {
+        margin-bottom: 14px;
+        color: #374151;
+      }
+      .meta {
+        margin-top: 8px;
+        color: #6b7280;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="brand">MyProject</div>
+      <nav
+        aria-label="main nav"
+        style="margin-left: 12px; color: #cfe8ff; font-size: 14px"
+      >
+        Demo UI · Scroll untuk lihat sticky
+      </nav>
+    </header>
+
+    <main>
+      <h1>
+        Contoh Header Sticky, Card dengan Badge, Tag relative, Overlap, dan
+        Tombol Fixed
+      </h1>
+
+      <!-- Card dengan badge -->
+      <section class="card" aria-label="product card">
+        <div class="media" role="img" aria-label="placeholder image">
+          Gambar Placeholder
+        </div>
+
+        <div class="badge">NEW</div>
+
+        <div class="content">
+          <div style="display: flex; align-items: center; gap: 12px">
+            <span class="tag">Tag</span>
+            <strong style="font-size: 16px">Nama Produk / Judul Card</strong>
+          </div>
+
+          <p class="meta">
+            Deskripsi singkat produk. Berikut contoh paragraf panjang supaya
+            halaman dapat discroll dan kita dapat melihat efek sticky header.
+          </p>
+
+          <!-- Paragraf panjang (lorem) supaya ada scroll -->
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
+            convallis lorem. Integer vestibulum, tortor id egestas tincidunt,
+            ipsum massa convallis nunc, vitae bibendum orci urna non elit. Donec
+            eleifend, arcu in fermentum faucibus, mauris mi convallis neque, sit
+            amet pulvinar turpis nibh ac sapien. Proin vel augue at nibh posuere
+            faucibus. Pellentesque habitant morbi tristique senectus et netus et
+            malesuada fames ac turpis egestas. Aliquam sit amet erat vitae lorem
+            congue efficitur. Sed ut orci id felis gravida accumsan.
+          </p>
+
+          <p>
+            Suspendisse potenti. Phasellus sagittis urna at orci facilisis,
+            vitae faucibus justo feugiat. Integer et ligula rutrum, efficitur
+            nibh in, congue mi. Integer condimentum, sapien eu pretium
+            venenatis, dolor dui ultricies arcu, sit amet volutpat tortor nibh a
+            lorem. Vivamus a sem non purus convallis consequat. Cras rhoncus,
+            justo vitae vulputate luctus, mauris augue tincidunt arcu, id
+            viverra eros augue ac eros.
+          </p>
+        </div>
+      </section>
+
+      <!-- Overlap boxes -->
+      <section class="overlap-wrap" aria-label="overlapping boxes example">
+        <div class="box-a">.box-a</div>
+        <div class="box-b">.box-b</div>
+      </section>
+
+      <!-- Beberapa paragraf tambahan untuk scroll panjang -->
+      <article>
+        <p>
+          Curabitur a risus eget sem fermentum feugiat. Curabitur non neque nec
+          risus facilisis placerat. Nulla facilisi. Cras eget velit a risus
+          vulputate vulputate id sed purus. Integer ultricies tellus eu risus
+          gravida, et ultricies risus volutpat. Vestibulum non mi nec mauris
+          commodo bibendum. Vestibulum in sem ut velit consectetur tempus.
+        </p>
+
+        <p>
+          Mauris posuere, sapien in volutpat cursus, tortor justo tincidunt
+          elit, a facilisis elit lorem non lectus. Pellentesque feugiat sem
+          vitae lectus lacinia, sit amet facilisis erat elementum. Ut consequat,
+          mi sit amet dictum convallis, dui magna vulputate nunc, id volutpat
+          nisl sapien at orci. Sed accumsan ante ac tortor pharetra, a hendrerit
+          tortor pretium.
+        </p>
+
+        <p>
+          Aenean sit amet sagittis eros. Vestibulum aliquam, ipsum sed tincidunt
+          gravida, nibh urna fermentum arcu, vitae vehicula sem nibh id augue.
+          Integer gravida lorem at libero euismod interdum. Praesent fringilla,
+          nunc at luctus faucibus, nibh lorem rhoncus nunc, vitae feugiat lectus
+          dolor id tortor.
+        </p>
+
+        <p>
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Integer in tortor id arcu viverra varius.
+          Suspendisse potenti. Sed dignissim sem vitae risus volutpat, id
+          posuere velit dictum. Sed in nulla et eros posuere finibus.
+        </p>
+
+        <p>
+          Donec euismod, augue non tempor fermentum, justo nunc fermentum magna,
+          vel cursus diam tortor sed mauris. Proin tincidunt lorem nec risus
+          porta, quis porta nisl suscipit. Integer nec dignissim lectus. Nam id
+          sapien id sapien tempor consequat.
+        </p>
+      </article>
+    </main>
+
+    <!-- Tombol fixed -->
+    <button
+      class="btn-fixed"
+      aria-label="Kembali ke atas"
+      title="Kembali ke atas"
+      onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    >
+      ↑
+    </button>
+  </body>
+</html>

@@ -18,7 +18,7 @@ nav {
   border-radius: 50px ;
 }
 
-nav-text{
+.nav-text{
 font-variant: small-caps;
 font-weight: 200;
 }
@@ -71,5 +71,5 @@ font-weight: 200;
 .nav-link.active {
   background-color: 404040;
   color: #fff;
- 
+
 }

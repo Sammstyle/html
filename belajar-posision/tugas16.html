@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas 16</title>
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Calf-16_amarillo.svg/1200px-Calf-16_amarillo.svg.png
+      ";
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family:poppins,sans-serif;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 20px;
+        color: white;
+      }
+
+      .sticky {
+        position: sticky;
+        top: 0;
+        padding: 7px;
+        background-color: black;
+        color: white;
+        font-size: 15px;
+        font-family: poppins, sans-serif;
+        text-align: center;
+        border: 5px solid blue;
+
+        z-index: 100;
+      }
+
+      .container {
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        width: 300px;
+        height: 300px;
+        border:1px #fff solid;
+        margin: auto;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        color: white;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        margin: 50px;
+      }
+
+      .box-a {
+        background-color: blue;
+        top: 20px;
+        left: 20px;
+      }
+
+      .box-b {
+        background-color: red;
+        top: 80px;
+        left: 60px;
+      }
+
+      .card {
+        position: relative;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid;
+        box-shadow: 0 6px 18px rgba(11, 22, 40, 0.06);
+        margin: 24px auto;
+        max-width: 500px;
+      }
+
+      .card .media {
+        display: block;
+        width: 100%;
+        height: 400px;
+        background: url(https://images.unsplash.com/photo-1758351754305-fe00523aaefe?q=80&w=1332&auto=format&fit=crop)
+          center/cover no-repeat;
+      }
+
+      .card .content {
+        padding: 16px;
+        color: black;
+      }
+
+      .badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: red;
+        color: #fff;
+        padding: 5px 15px;
+        border-radius: 90px;
+        font-weight: 700;
+        font-size: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        padding-top: 80px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background: rgba(0, 0, 0, 0.8);
+      }
+
+      .modal-content {
+        margin: auto;
+        display: block;
+        max-width: 80%;
+        border-radius: 10px;
+      }
+
+      .close {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sticky">
+      <p>Header sticky</p>
+    </div>
+
+    <!-- Card -->
+    <section class="card" aria-label="product card">
+      <div class="media" role="img" aria-label="placeholder image"></div>
+
+      <div class="badge">NEW</div>
+
+      <div class="content">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <strong style="font-size: 16px">The Cloud Breaker</strong>
+        </div>
+        <p class="meta">
+          Deskripsi singkat produk. Berikut contoh paragraf panjang supaya
+          halaman dapat discroll dan kita dapat melihat efek sticky header.
+        </p>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+      <img class="modal-content" id="img01" />
+      <div id="caption"></div>
+    </div>
+    <div class="container">
+      <div class="box box-a">Box A</div>
+      <div class="box box-b">Box B</div>
+    </div>
+  </body>
+</html>
