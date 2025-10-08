@@ -1,0 +1,49 @@
+body {
+  padding: 20px;
+  font-family: poppins;
+}
+.heading {
+  font-family: poppins;
+  font-weight: bold;
+  font-size: 20px;
+}
+.subheading {
+  padding-left: 30px;
+}
+span {
+  padding: 10px;
+  display: block;
+}
+.kotak1 {
+  display: inline-block;
+  background-color: cadetblue;
+  width: 200px;
+  height: 100px;
+  margin: 10px;
+}
+.kotak2 {
+  display: inline-block;
+  background-color: red;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+}
+.kotak {
+  width: 120px;
+  height: 120px;
+  background: salmon;
+  margin: 10px;
+  display: inline-block;
+  text-align: center;
+  line-height: 120px;
+  color: white;
+  font-weight: bold;
+}
+
+.hilang-display {
+  display: none;
+}
+
+.hilang-visibility {
+  visibility: hidden;
+}
