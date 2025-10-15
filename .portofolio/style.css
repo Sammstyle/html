@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  backdrop-filter: blur(10px);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.skill-bar {
+  transition: width 1.5s ease-in-out;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+img {
+  /* Opsional: atur tata letak atau styling container */
+  display: flex;
+  align-items: center;
+  width:100px; /* Sesuaikan dengan ukuran yang diinginkan */
+  height: auto; /* Sesuaikan tinggi agar proporsional */
+  border-radius: 20px;
+}

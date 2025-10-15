@@ -1,0 +1,59 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.content {
+  padding: 20px;
+}
+
+.social-bar {
+  position: fixed;
+  top: 30%;
+  z-index: 1000;
+}
+
+.social-bar.left {
+  left: 0;
+}
+
+.social-bar.right {
+  right: 0;
+}
+
+.social-icon {
+  display: block;
+  text-align: center;
+  padding: 15px;
+  margin: 5px 0;
+  color: white;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 0 50px 50px 0;
+}
+
+.social-bar.right .social-icon {
+  border-radius: 50px 0 0 50px;
+}
+
+.social-icon:hover {
+  background-color: #fff;
+  color: black;
+}
+
+.facebook {
+  background: #3b5998;
+}
+.twitter {
+  background: #55acee;
+}
+.instagram {
+  background: #e1306c;
+}
+.linkedin {
+  background: #007bb5;
+}
+.youtube {
+  background: #bb0000;
+}

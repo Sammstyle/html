@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "github.copilot",
+    "github.copilot-chat",
+    "DanielSanMedium.dscodegpt",
+    "tabnine.tabnine-vscode",
+    "formulahendry.code-runner",
+    "xabikos.javascriptsnippets",
+    "esbenp.prettier-vscode",
+    "PKief.material-icon-theme"
+  ]
+}
