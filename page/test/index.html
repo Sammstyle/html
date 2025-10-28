@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dark Travel Showcase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #ecad29;
+      --text-color: #ffffffdd;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background-color: #0f0f0f;
+      color: var(--text-color);
+      overflow: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 36px;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      z-index: 50;
+    }
+
+    nav div {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    nav .active {
+      position: relative;
+    }
+
+    nav .active::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -6px;
+      height: 3px;
+      border-radius: 50px;
+      background-color: var(--primary-color);
+    }
+
+    .card {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.7);
+      transition: transform 0.5s ease, opacity 0.6s ease;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+    }
+
+    .content {
+      position: absolute;
+      bottom: 100px;
+      left: 60px;
+      max-width: 500px;
+    }
+
+    .content h2 {
+      font-family: "Oswald", sans-serif;
+      font-size: 72px;
+      margin: 0;
+      line-height: 0.9;
+      color: #fff;
+    }
+
+    .content p {
+      margin-top: 16px;
+      line-height: 1.6;
+      font-size: 15px;
+      color: #ddd;
+    }
+
+    .content button {
+      margin-top: 24px;
+      border: none;
+      border-radius: 99px;
+      padding: 10px 24px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .content .discover {
+      border: 1px solid #fff;
+      background: transparent;
+      color: #fff;
+    }
+
+    .content .discover:hover {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      color: #000;
+    }
+
+    .indicator {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background-color: var(--primary-color);
+      z-index: 60;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .content {
+        left: 20px;
+        bottom: 60px;
+        max-width: 90%;
+      }
+      .content h2 {
+        font-size: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="indicator"></div>
+
+  <nav>
+    <div>
+      <span>🌍</span>
+      <div>Globe Express</div>
+    </div>
+    <div>
+      <div class="active">Home</div>
+      <div>Destinations</div>
+      <div>Offers</div>
+      <div>Contact</div>
+    </div>
+  </nav>
+
+  <div class="card" style="background-image:url('https://assets.codepen.io/3685267/timed-cards-2.jpg');"></div>
+  <div class="overlay"></div>
+
+  <div class="content">
+    <h2>Japan Alps</h2>
+    <p>
+      Nagano Prefecture, set within the majestic Japan Alps, is a cultural treasure with historic shrines and amazing mountain views.
+    </p>
+    <button class="discover">Discover Location</button>
+  </div>
+</body>
+</html>

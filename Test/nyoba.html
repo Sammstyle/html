@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sekolah Abazur</title>
+   <style>
+    * {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+/* tambahan */
+::selection {
+  background-color: #1d2b58;
+  color: white;
+}
+::-moz-selection {
+  background-color: #1d2b58;
+  color: white;
+}
+/* header */
+header {
+  display: flex;
+  justify-content: space-around;
+  color: #1d2b58;
+  background-color: white;
+  box-shadow: 0px 2px 15px black;
+  position: sticky;
+  padding: 15px 20px;
+  top: 0;
+  left: 0;
+  width: 100;
+  z-index: 1000;
+}
+img {
+  width: 75px;
+}
+#logo-header {
+  font-family: poppins;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+nav {
+  display: flex;
+  align-items: center;
+}
+nav ul {
+  display: flex;
+  list-style-type: none;
+  gap: 10px;
+}
+nav li {
+  padding: 5px;
+}
+nav li img {
+  width: 25px;
+}
+a {
+  color: #1d2b58;
+  text-decoration: none;
+  font-family: poppins;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  gap: 5px;
+}
+li a:hover {
+  color: #757575;
+}
+/* button */
+button {
+  padding: 10px;
+  border: solid;
+  border-radius: 10px;
+  border-color: white;
+  background-color: #1d2b58;
+  color: white;
+  font-family: poppins;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: white;
+  border-color: #1d2b58;
+  color: #1d2b58;
+  border: solid;
+}
+/* hero section */
+#hero div {
+  background-image: url(../Asset/54d57d87f7fd99d604ab0fb6fb5485d1.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 95vh;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+#hero h1 {
+  color: #1d2b58;
+  font-family: poppins;
+  text-transform: uppercase;
+  font-size: 100px;
+  text-shadow: 0px 0px 10px#1d2b58;
+}
+#hero img {
+  width: 100px;
+}
+/* profil */
+#profil {
+  display: block;
+  font-family: poppins;
+  padding: 100px 200px;
+}
+#profil h2 {
+  font-size: xx-large;
+  margin-bottom: 25px;
+}
+.container1,
+.container2 {
+  color: #1d2b58;
+  padding: 0px 150px;
+  border-radius: 10px;
+}
+.container1-text,
+.container2-text,
+.container1 button,
+.container2 button {
+  margin-top: 25px;
+}
+.container2-img,
+.container2-text {
+  text-align: right;
+}
+/* judul */
+#container-judul {
+  margin: 100px;
+}
+.judultambahan {
+  text-align: center;
+  font-family: poppins;
+  font-weight: 300;
+  letter-spacing: 10px;
+}
+.judul {
+  text-align: center;
+  font-family: poppins;
+  text-transform: capitalize;
+  padding: 20px;
+}
+.subjudul {
+  text-align: center;
+  font-family: poppins;
+  text-transform: capitalize;
+}
+/* fasilitas */
+#fasilitas {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+#macam-fasilitas {
+  display: flex;
+  justify-content: center;
+  padding-inline: 200px;
+}
+.macam {
+  width: 33%;
+  display: block;
+  background-color: #1d2b58;
+  padding: 50px;
+  margin-inline: 50px;
+  text-align: center;
+  font-family: poppins;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px #1d2b58;
+}
+/* testimonials */
+#testimonial {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.testimonial {
+  width: 33%;
+  display: block;
+  background-color: white;
+  padding: 50px;
+  margin-inline: 50px;
+  text-align: center;
+  font-family: poppins;
+  color: #1d2b58;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px #1d2b58;
+}
+#macam-testimonial {
+  display: flex;
+  justify-content: center;
+  padding-inline: 200px;
+}
+/* footer */
+footer {
+  background-color: #1d2b58;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+}
+.container-footer-induk {
+  display: flex;
+}
+.container-footer {
+  padding: 10px;
+  font-family: poppins;
+  text-transform: capitalize;
+  color: white;
+  width: 50%;
+}
+   </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="../Asset/Group.svg" />
+  </head>
+  <body>
+    <header>
+      <a href="#hero" id="logo-header">
+        <img src="../Asset/Group.svg" alt="Logo" />
+        <p>ABAZUR</p>
+      </a>
+      <nav>
+        <ul>
+          <li>
+            <a href="#hero"><img src="../Asset/material-symbols_home-rounded.svg"alt="icon"/>Home</a>
+          </li>
+          <li>
+            <a href="#profil"><img src="../Asset/ix_user-profile-filled.svg"alt="icon"/>Profil</a>
+          </li>
+          <li>
+            <a href="#fasilitas"><img src="../Asset/fluent_building-32-filled.svg"alt="icon"/>Fasilitas</a>
+          </li>
+          <li>
+            <a href="#testimonial"><img src="../Asset/dashicons_testimonial.svg"alt="icon"/>Testimonials</a>
+          </li>
+        </ul>
+      </nav>
+      <button>Daftar Sekarang</button>
+    </header>
+    <main>
+      <section id="hero">
+        <div>
+          <img src="../Asset/Group.svg" alt="" />
+          <h1>abazur islamic school</h1>
+        </div>
+      </section>
+      <section id="profil">
+        <div class="container1">
+          <div class="container1-img">
+            <img src="../Asset/Group.svg" alt="logo" />
+          </div>
+          <div class="container1-text">
+            <h2>ABAZUR ISLAMIC SCHOOL</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+              earum, nulla illo laborum iusto maxime provident quibusdam
+              voluptatibus aspernatur a ex possimus reiciendis ut nostrum unde
+              voluptatem dolorem doloribus et commodi laboriosam nemo,
+              temporibus laudantium perspiciatis non? Asperiores rerum
+              accusantium eius deserunt, sunt explicabo placeat aperiam. Facere
+              sit consequatur sed sequi iure, explicabo, pariatur culpa illo
+              ducimus fugit veritatis modi nesciunt est non, possimus aperiam
+              sint? Sequi ab quae corporis consequuntur animi illo iure dicta,
+              suscipit dignissimos nulla, ducimus libero eos quos voluptatum
+              porro iste facilis commodi alias expedita quidem? Ipsam
+              consectetur ab numquam iusto distinctio. Exercitationem cumque
+              nulla ipsa.
+            </p>
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="container2">
+          <div class="container2-text">
+            <h2>Visi Misi</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque,
+              esse magni numquam magnam quo, totam nobis consectetur in
+              distinctio blanditiis fugiat, laudantium consequatur dolor tenetur
+              asperiores fugit ratione vero est recusandae sequi. Nulla pariatur
+              qui minus sit odio, animi saepe molestias aut quis similique
+              repellat fugit autem soluta, id voluptate omnis accusantium
+              repudiandae inventore nisi. Fuga perferendis neque aut. At labore
+              obcaecati hic cum dolore mollitia deserunt! Iure dolorem nostrum
+              laboriosam iste deleniti id ea nam culpa officia? Perferendis illo
+              quos doloremque! Maiores nemo maxime sunt, nulla perferendis
+              aperiam autem, necessitatibus omnis atque illum similique
+              reprehenderit eius ducimus culpa iusto?
+            </p>
+            <button>Read More</button>
+          </div>
+        </div>
+      </section>
+      <section id="fasilitas">
+        <div id="container-judul">
+          <p class="judultambahan">FASILITAS</p>
+          <h2 class="judul">lingkungan nyaman, fasilitas lengkap</h2>
+          <p class="subjudul">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident
+            voluptatem sit, ea fugit, aliquam odit quidem <br />
+            consequatur, veritatis ex architecto inventore molestias facilis
+            rerum perspiciatis.
+          </p>
+        </div>
+        <div id="macam-fasilitas">
+          <div class="macam">
+            <img
+              src="../Asset/mingcute_air-condition-fill.svg"
+              alt="gambar ac"
+            />
+            <h3>Kelas Full AC</h3>
+            <p>
+              Seluruh ruang kelas dilengkapi AC untuk menciptakan suasana
+              belajar yang nyaman dan fokus.
+            </p>
+          </div>
+          <div class="macam">
+            <img
+              src="../Asset/fluent_building-24-filled.svg"
+              alt="gambar asrama"
+            />
+            <h3>Asrama Nyaman</h3>
+            <p>
+              Asrama yang luas, full AC, dan selalu bersih, memberikan
+              kenyamanan untuk beristirahat dan beraktivitas .
+            </p>
+          </div>
+          <div class="macam">
+            <img
+              src="../Asset/fluent_swimming-pool-24-filled.svg"
+              alt="gambar kolam"
+            />
+            <h3>Kolam Renang</h3>
+            <p>
+              Fasilitas kolam renang untuk mendukung kebugaran dan kegiatan
+              ekstrakurikuler santri.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="testimonial">
+        <div id="container-judul">
+          <p class="judultambahan">testimonials</p>
+          <h2 class="judul">apa kata mereka?</h2>
+          <p class="subjudul">
+            Bukan kata kami, tapi inilah suara hati mereka yang telah menitipkan
+            amanahnya kepada kami.
+          </p>
+        </div>
+        <div id="macam-testimonial">
+          <div class="testimonial">
+            <img src="../Asset/ix_user-profile-filled.svg" alt="profil" />
+            <h3>Fulan</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Temporibus aspernatur ipsa, esse error unde quia.
+            </p>
+          </div>
+          <div class="testimonial">
+            <img src="../Asset/ix_user-profile-filled.svg" alt="profil" />
+            <h3>Fulan</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Temporibus aspernatur ipsa, esse error unde quia.
+            </p>
+          </div>
+          <div class="testimonial">
+            <img src="../Asset/ix_user-profile-filled.svg" alt="profil" />
+            <h3>Fulan</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Temporibus aspernatur ipsa, esse error unde quia.
+            </p>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="container-footer-induk">
+          <div class="container-footer">
+            <h2>alamat kami</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+              illo.
+            </p>
+          </div>
+          <div class="container-footer">
+            <h2>contact us</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Quisquam, nulla.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Multi Concept — Dark Interactive Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0d;
+    --panel:#111214;
+    --muted:#9aa0a6;
+    --text:#e6eef8;
+    --accent:#7f5af0;
+    --accent-2:#ecad29;
+    --glass: rgba(255,255,255,0.04);
+    --glass-2: rgba(255,255,255,0.02);
+    --success:#4ade80;
+    --danger:#ff6b6b;
+    --radius:12px;
+    --max-width:1200px;
+  }
+  /* reset */
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+    background:linear-gradient(180deg,var(--bg) 0%, #060607 100%);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-x:hidden;
+  }
+
+  /* loader */
+  #loader{
+    position:fixed;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,#000 0%, rgba(0,0,0,0.7) 100%);z-index:9999;
+  }
+  .spinner{
+    width:84px;height:84px;border-radius:50%;border:6px solid rgba(255,255,255,0.06);
+    border-top-color:var(--accent);animation:spin 1s linear infinite;display:grid;place-items:center;
+  }
+  .spinner::after{content:"";width:30px;height:30px;border-radius:50%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* top progress indicator (page load & scroll) */
+  #top-progress{position:fixed;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:9998;transition:width .12s linear}
+
+  /* navbar */
+  header{
+    position:fixed;left:0;right:0;top:0;z-index:900;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;
+    backdrop-filter: blur(6px); background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2));
+    border-bottom:1px solid rgba(255,255,255,0.02);
+  }
+  .brand{display:flex;gap:12px;align-items:center;font-weight:700;font-family:Oswald,Inter}
+  .brand .logo{
+    width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#5ad1ff);display:grid;place-items:center;color:#061827;font-weight:800;font-size:20px;
+  }
+  nav .links{display:flex;gap:18px;align-items:center}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;padding:8px;border-radius:8px}
+  nav a:hover{color:var(--text);background:var(--glass)}
+  .controls{display:flex;gap:12px;align-items:center}
+  .btn{
+    border:none;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#041019;font-weight:600;cursor:pointer;
+    box-shadow:0 6px 18px rgba(127,90,240,0.12);
+  }
+  .ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)}
+
+  /* layout container */
+  main{max-width:var(--max-width);margin:120px auto 80px;padding:0 20px;display:grid;gap:80px}
+
+  /* HERO / TRAVEL modern */
+  .hero{
+    position:relative;min-height:72vh;border-radius:16px;overflow:hidden;background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5));
+    display:grid;grid-template-columns:1fr 420px;gap:24px;padding:36px;
+    background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;background-position:center;
+    box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+  }
+  .hero-left{align-self:center}
+  .kicker{display:inline-block;padding:6px 10px;background:var(--glass);border-radius:999px;color:var(--accent-2);font-weight:700;font-size:12px}
+  .hero h1{font-family:Oswald;font-size:44px;margin:12px 0 6px;line-height:0.95}
+  .hero p{color:var(--muted);max-width:60%}
+  .hero .meta{margin-top:18px;display:flex;gap:10px;align-items:center}
+  .pill{background:rgba(0,0,0,0.35);padding:8px 12px;border-radius:999px;font-weight:600;border:1px solid rgba(255,255,255,0.03);display:inline-flex;gap:8px;align-items:center}
+  .cta-group{margin-top:20px;display:flex;gap:12px}
+
+  /* small travel cards list */
+  .travel-list{display:flex;flex-direction:column;gap:12px;align-self:center}
+  .travel-card{display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02);}
+  .travel-card img{width:68px;height:68px;border-radius:8px;object-fit:cover}
+  .travel-card h4{margin:0;font-size:15px}
+  .travel-card p{margin:0;font-size:12px;color:var(--muted)}
+
+  /* Portfolio dark futuristik */
+  .portfolio{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  }
+  .pf-card{
+    border-radius:12px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.02);padding:0;transition:transform .35s,box-shadow .35s;
+  }
+  .pf-card:hover{transform:translateY(-10px);box-shadow:0 18px 50px rgba(0,0,0,0.6)}
+  .pf-thumb{height:180px;background-size:cover;background-position:center}
+  .pf-body{padding:14px}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .tag{background:var(--glass);padding:6px 8px;border-radius:999px;font-size:12px;color:var(--muted)}
+
+  /* Landing page company */
+  .company{
+    display:flex;gap:20px;align-items:center;padding:28px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.02)
+  }
+  .company .left{flex:1}
+  .company .right{width:320px}
+  .stat-grid{display:flex;gap:12px;margin-top:12px}
+  .stat{background:var(--glass);padding:12px;border-radius:8px;text-align:center}
+  .stat h3{margin:0;color:var(--accent);font-size:18px}
+  .stat p{margin:8px 0 0;color:var(--muted);font-size:13px}
+
+  /* Showcase animasi estetik */
+  .showcase{
+    display:grid;grid-template-columns:2fr 1fr;gap:18px;
+  }
+  .gallery{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+  }
+  .gallery img{width:100%;height:180px;object-fit:cover;border-radius:8px;transition:transform .4s,filter .4s}
+  .gallery img:hover{transform:scale(1.05);filter:brightness(1.08) saturate(1.05)}
+  .side-panel{display:flex;flex-direction:column;gap:12px}
+  .accordion{background:var(--panel);padding:10px;border-radius:10px}
+  .accordion button{width:100%;text-align:left;padding:12px;border-radius:8px;border:none;background:transparent;color:var(--text);cursor:pointer;font-weight:600}
+  .accordion .content{max-height:0;overflow:hidden;padding:0 12px;color:var(--muted);transition:max-height .35s ease}
+
+  /* footer */
+  footer{padding:36px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+  .footer-grid{display:flex;gap:20px;justify-content:space-between;align-items:center}
+
+  /* back to top */
+  #toTop{position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#041019;border:none;cursor:pointer;box-shadow:0 12px 40px rgba(127,90,240,0.12);opacity:0;transform:translateY(20px);transition:all .3s;z-index:800}
+  #toTop.show{opacity:1;transform:translateY(0)}
+
+  /* small utilities */
+  .muted{color:var(--muted)}
+  .flex{display:flex;align-items:center;gap:12px}
+  .center{display:grid;place-items:center}
+  .pill-small{padding:6px 10px;border-radius:999px;background:var(--glass);font-size:12px}
+
+  /* responsive */
+  @media (max-width:1000px){
+    .hero{grid-template-columns:1fr;min-height:60vh;padding:28px}
+    .portfolio{grid-template-columns:repeat(2,1fr)}
+    .showcase{grid-template-columns:1fr;grid-auto-rows:minmax(200px,auto)}
+    main{margin:100px 18px 60px}
+  }
+  @media (max-width:600px){
+    nav .links{display:none}
+    .pf-card{min-height:220px}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .hero p{max-width:100%}
+    header{padding:12px 14px}
+  }
+</style>
+</head>
+<body>
+
+<!-- loader -->
+<div id="loader" aria-hidden="false">
+  <div class="spinner" role="status" aria-label="loading"></div>
+</div>
+
+<!-- top progress -->
+<div id="top-progress" aria-hidden="true"></div>
+
+<!-- header / navbar -->
+<header>
+  <div class="brand"><div class="logo">G</div><div>Globe / Ghifary</div></div>
+  <nav class="links" aria-label="main">
+    <a href="#travel">Travel</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#company">Company</a>
+    <a href="#showcase">Showcase</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="controls">
+    <button id="toggleTheme" class="ghost" title="Mode Gelap/Auto">Auto theme</button>
+    <button id="openMenu" class="ghost">Menu</button>
+    <button class="btn" id="bookBtn">Book Now</button>
+  </div>
+</header>
+
+<!-- main content -->
+<main>
+
+  <!-- HERO Travel modern -->
+  <section id="travel" class="hero" aria-labelledby="travel-title">
+    <div class="hero-left">
+      <span class="kicker">Featured</span>
+      <h1 id="travel-title">Discover the Japan Alps</h1>
+      <p class="muted">Explore ancient shrines, pristine powder, and alpine trails. This curated guide helps you plan the perfect mountain escape with local tips, seasonal activities, and hidden spots.</p>
+
+      <div class="meta">
+        <div class="pill">⏱ 7 days</div>
+        <div class="pill">💼 Guided tours</div>
+        <div class="pill">🔥 Best seller</div>
+      </div>
+
+      <div class="cta-group">
+        <button class="btn" id="exploreBtn">Explore</button>
+        <button class="ghost" id="watchVideo">Watch Trailer</button>
+      </div>
+
+      <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <div class="pill-small">Parallax background</div>
+        <div class="pill-small">Auto dark mode</div>
+        <div class="pill-small">Scroll-reveal</div>
+      </div>
+    </div>
+
+    <aside class="travel-list" aria-hidden="false">
+      <div class="travel-card" role="article">
+        <img data-src="https://images.unsplash.com/photo-1505765055086-1a6b49a4e1b6?auto=format&fit=crop&w=600&q=80" alt="Nagano">
+        <div>
+          <h4>Nagano Highlights</h4>
+          <p class="muted">Ski, shrine & local cuisine.</p>
+        </div>
+      </div>
+      <div class="travel-card">
+        <img data-src="https://images.unsplash.com/photo-1505765055086-1a6b49a4e1b6?auto=format&fit=crop&w=600&q=80" alt="Yosemite">
+        <div>
+          <h4>Hidden Valleys</h4>
+          <p class="muted">Hiking trails & wildflowers.</p>
+        </div>
+      </div>
+      <div class="travel-card">
+        <img data-src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Merzouga">
+        <div>
+          <h4>Desert Nights</h4>
+          <p class="muted">Camel treks & stargazing.</p>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- Portfolio dark futuristik -->
+  <section id="portfolio" aria-labelledby="pf-title">
+    <h2 id="pf-title" style="font-family:Oswald;margin:0 0 14px;font-size:28px;color:var(--accent)">Portfolio — Dark Futuristik</h2>
+    <p class="muted">Kumpulan proyek & eksperimen UI/UX, fokus pada micro-interactions dan estetika gelap.</p>
+
+    <div class="portfolio" style="margin-top:18px">
+      <!-- many cards to increase features & hover states -->
+      <article class="pf-card" data-animate>
+        <div class="pf-thumb" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80')"></div>
+        <div class="pf-body">
+          <h3>Futuristic Dashboard</h3>
+          <p class="muted">Realtime widgets, animated charts & keyboard-friendly controls.</p>
+          <div class="tags">
+            <span class="tag">React</span><span class="tag">WebGL</span><span class="tag">Accessibility</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pf-card" data-animate>
+        <div class="pf-thumb" style="background-image:url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1200&q=80')"></div>
+        <div class="pf-body">
+          <h3>Motion Landing</h3>
+          <p class="muted">Cinematic entry, scroll-timed reveals & smooth micro-interactions.</p>
+          <div class="tags"><span class="tag">Animation</span><span class="tag">UX</span></div>
+        </div>
+      </article>
+
+      <article class="pf-card" data-animate>
+        <div class="pf-thumb" style="background-image:url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1200&q=80')"></div>
+        <div class="pf-body">
+          <h3>Micro-interaction Kit</h3>
+          <p class="muted">Library of hover, focus & state patterns for designers.</p>
+          <div class="tags"><span class="tag">CSS</span><span class="tag">JS</span></div>
+        </div>
+      </article>
+
+      <article class="pf-card" data-animate>
+        <div class="pf-thumb" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80')"></div>
+        <div class="pf-body">
+          <h3>3D Product Viewer</h3>
+          <p class="muted">Rotate, zoom & inspect with smooth inertia controls.</p>
+          <div class="tags"><span class="tag">Three.js</span><span class="tag">WebGL</span></div>
+        </div>
+      </article>
+
+      <article class="pf-card" data-animate>
+        <div class="pf-thumb" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80')"></div>
+        <div class="pf-body">
+          <h3>Portfolio CMS</h3>
+          <p class="muted">Headless CMS integration & image optimization pipeline.</p>
+          <div class="tags"><span class="tag">Jamstack</span><span class="tag">Netlify</span></div>
+        </div>
+      </article>
+
+      <article class="pf-card" data-animate>
+        <div class="pf-thumb" style="background-image:url('https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=1200&q=80')"></div>
+        <div class="pf-body">
+          <h3>Accessibility Audit</h3>
+          <p class="muted">Color contrast, keyboard nav & screen reader flows.</p>
+          <div class="tags"><span class="tag">WCAG</span><span class="tag">A11y</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Company landing -->
+  <section id="company" aria-labelledby="company-title">
+    <h2 id="company-title" style="font-family:Oswald;margin:0;font-size:28px;color:var(--accent)">Company Landing — Elegant</h2>
+    <div class="company" style="margin-top:12px">
+      <div class="left">
+        <h3 style="margin:0;font-size:22px">We build secure travel platforms</h3>
+        <p class="muted" style="margin-top:8px">Enterprise-grade APIs, uptime & performance focus, with clear SLAs and 24/7 support.</p>
+
+        <div class="stat-grid">
+          <div class="stat"><h3>99.99%</h3><p class="muted">Uptime</p></div>
+          <div class="stat"><h3>200+</h3><p class="muted">Destinations</p></div>
+          <div class="stat"><h3>24/7</h3><p class="muted">Support</p></div>
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:10px">
+          <button class="btn" id="ctaContact">Get a Quote</button>
+          <button class="ghost" id="ctaDocs">Docs</button>
+        </div>
+      </div>
+
+      <div class="right">
+        <div style="background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:16px;border-radius:12px;color:#041019">
+          <h4 style="margin:0">Free 30 day trial</h4>
+          <p style="margin:8px 0 0">No credit card. Cancel anytime.</p>
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <button class="btn">Start Trial</button>
+            <button class="ghost">Contact Sales</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase animasi estetik -->
+  <section id="showcase" aria-labelledby="showcase-title">
+    <h2 id="showcase-title" style="font-family:Oswald;margin:0;font-size:28px;color:var(--accent)">Showcase — Animasi Estetik</h2>
+    <div class="showcase" style="margin-top:16px">
+      <div class="gallery" id="gallery">
+        <img data-src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="art1" loading="lazy">
+        <img data-src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=800&q=80" alt="art2" loading="lazy">
+        <img data-src="https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=800&q=80" alt="art3" loading="lazy">
+        <img data-src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="art4" loading="lazy">
+        <img data-src="https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=800&q=80" alt="art5" loading="lazy">
+        <img data-src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="art6" loading="lazy">
+      </div>
+
+      <aside class="side-panel">
+        <div class="accordion">
+          <button class="acc-btn">Design System</button>
+          <div class="content"><p class="muted">Color palettes, typographic scale, and component tokens.</p></div>
+
+          <button class="acc-btn">Motion Guidelines</button>
+          <div class="content"><p class="muted">Duration, easing, and motion choreography for micro-interactions.</p></div>
+
+          <button class="acc-btn">Performance Tips</button>
+          <div class="content"><p class="muted">Image lazy-loading, code-splitting & critical CSS strategies.</p></div>
+        </div>
+
+        <div style="background:var(--glass);padding:12px;border-radius:10px">
+          <h4 style="margin:0">Filter</h4>
+          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="ghost filter-btn" data-filter="all">All</button>
+            <button class="ghost filter-btn" data-filter="nature">Nature</button>
+            <button class="ghost filter-btn" data-filter="city">City</button>
+          </div>
+        </div>
+
+        <div style="margin-top:auto" class="center muted">Protip: hover gambar untuk efek zoom & klik untuk buka modal</div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Contact & small components (adds more features) -->
+  <section id="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title" style="font-family:Oswald;margin:0;font-size:28px;color:var(--accent)">Contact</h2>
+    <div style="margin-top:12px;display:grid;grid-template-columns:1fr 340px;gap:18px">
+      <form id="contactForm" style="background:var(--panel);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)">
+        <label class="muted">Nama</label>
+        <input name="name" required style="width:100%;padding:10px;margin-top:6px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)">
+        <label class="muted" style="margin-top:10px;display:block">Email</label>
+        <input name="email" type="email" required style="width:100%;padding:10px;margin-top:6px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)">
+        <label class="muted" style="margin-top:10px;display:block">Pesan</label>
+        <textarea name="message" rows="5" style="width:100%;padding:10px;margin-top:6px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)"></textarea>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button class="btn" type="submit">Send</button>
+          <button type="button" class="ghost" id="saveDraft">Save draft</button>
+        </div>
+      </form>
+
+      <aside style="background:var(--glass);padding:16px;border-radius:10px">
+        <h4 style="margin:0">Contact Info</h4>
+        <p class="muted" style="margin:8px 0 0">Serpong, Indonesia • <span style="color:var(--accent)">ghifary@example.com</span></p>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button class="ghost" id="openMap">Open Map</button>
+          <button class="ghost" id="downloadPDF">Download PDF</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>© <strong>Ghifary</strong> — Built with ❤️ & JS</div>
+      <div class="muted">Made in Serpong • Dark interactive demo</div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- back to top -->
+<button id="toTop" aria-label="Back to top">▲</button>
+
+<!-- modal image viewer -->
+<div id="modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.75);display:none;place-items:center;z-index:999">
+  <div style="max-width:900px;width:92%;border-radius:12px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,0.03);">
+    <img id="modalImg" src="" alt="" style="width:100%;height:auto;display:block">
+  </div>
+</div>
+
+<script>
+/* ---------- Utilities & features implemented (many small features) ----------
+  - Loader
+  - Top progress indicator (scroll)
+  - Auto dark mode by local time or toggle
+  - Parallax background (hero)
+  - Lazy load images
+  - Scroll reveal (intersection observer)
+  - Hover effects & micro-interactions (CSS)
+  - Portfolio hover lift
+  - Gallery hover zoom + modal viewer
+  - Accordion (showcase)
+  - Filter buttons (no heavy filtering, mock)
+  - Contact form basic handling + save draft (localStorage)
+  - Back-to-top
+  - Smooth scroll
+  - A bunch of small UI pieces: pills, badges, stat cards, tags
+  - Click-to-open actions: book, docs, map (mock)
+  - Keyboard accessible: ESC to close modal
+----------------------------------------------------------------------------*/
+
+document.documentElement.style.scrollBehavior = "smooth";
+
+/* Loader -> hide after resources ready */
+const loader = document.getElementById('loader');
+window.addEventListener('load', () => {
+  // simulate small delay
+  setTimeout(()=> {
+    loader.style.opacity = '0';
+    loader.style.pointerEvents = 'none';
+    loader.setAttribute('aria-hidden','true');
+    document.getElementById('top-progress').style.width = '6%';
+    setTimeout(()=> document.getElementById('top-progress').style.width = '0%', 350);
+  }, 600);
+});
+
+/* Top progress on scroll */
+const topProgress = document.getElementById('top-progress');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const percent = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  topProgress.style.width = Math.min(100, percent) + '%';
+  // back to top visibility
+  const toTop = document.getElementById('toTop');
+  if (window.scrollY > 400) toTop.classList.add('show'); else toTop.classList.remove('show');
+});
+
+/* Auto theme: set based on hour or toggle */
+const toggle = document.getElementById('toggleTheme');
+function applyAutoTheme(){
+  const hour = new Date().getHours();
+  if(localStorage.getItem('theme') === 'light'){ document.body.style.background = 'linear-gradient(180deg,#f4f6f8,#eef2f7)'; }
+  else if(localStorage.getItem('theme') === 'dark'){ document.body.style.background = 'linear-gradient(180deg,var(--bg), #060607)'; }
+  else {
+    // auto: night -> dark (18-6), day -> slightly lighter dark (still dark theme)
+    if(hour >= 18 || hour < 6) { document.body.style.background = 'linear-gradient(180deg,var(--bg), #040405)'; }
+    else { document.body.style.background = 'linear-gradient(180deg,#08090a,#050506)'; }
+  }
+}
+applyAutoTheme();
+toggle.addEventListener('click', ()=> {
+  if(localStorage.getItem('theme') === 'dark'){ localStorage.setItem('theme','light'); toggle.textContent='Light'; }
+  else if(localStorage.getItem('theme') === 'light'){ localStorage.removeItem('theme'); toggle.textContent='Auto'; }
+  else { localStorage.setItem('theme','dark'); toggle.textContent='Dark'; }
+  applyAutoTheme();
+});
+
+/* Parallax hero -> move background slightly on mouse move */
+const hero = document.querySelector('.hero');
+hero.addEventListener('mousemove', (e) => {
+  const rect = hero.getBoundingClientRect();
+  const x = (e.clientX - rect.left)/(rect.width);
+  const y = (e.clientY - rect.top)/(rect.height);
+  hero.style.backgroundPosition = `${50 + (x-0.5)*8}% ${50 + (y-0.5)*8}%`;
+});
+
+/* Lazy load images (data-src) */
+const lazyImgs = Array.from(document.querySelectorAll('img[data-src]'));
+const io = new IntersectionObserver((entries, obs) => {
+  entries.forEach(en => {
+    if(en.isIntersecting){
+      const img = en.target;
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+      obs.unobserve(img);
+    }
+  });
+},{rootMargin:'200px 0px'});
+lazyImgs.forEach(i=> io.observe(i));
+
+/* Scroll reveal for elements with data-animate */
+const reveals = document.querySelectorAll('[data-animate]');
+const revealer = new IntersectionObserver((ents, obs) => {
+  ents.forEach(en => {
+    if(en.isIntersecting){ en.target.style.transform='translateY(0)'; en.target.style.opacity='1'; obs.unobserve(en.target); }
+  });
+},{threshold:0.12});
+reveals.forEach(el => { el.style.transform='translateY(20px)'; el.style.opacity='0'; revealer.observe(el)});
+
+/* Gallery hover + modal viewer */
+const gallery = document.getElementById('gallery');
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+gallery.addEventListener('click', (e) => {
+  const t = e.target;
+  if(t.tagName === 'IMG'){
+    modal.style.display = 'grid';
+    modalImg.src = t.src || t.dataset.src;
+  }
+});
+modal.addEventListener('click',(e)=> { if(e.target === modal) modal.style.display='none'; });
+document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') modal.style.display='none'; });
+
+/* Accordion */
+document.querySelectorAll('.acc-btn').forEach(btn=>{
+  btn.addEventListener('click', () => {
+    const next = btn.nextElementSibling;
+    if(!next) return;
+    if(next.style.maxHeight && next.style.maxHeight !== '0px'){ next.style.maxHeight = null; }
+    else { next.style.maxHeight = next.scrollHeight + 'px'; }
+  });
+});
+
+/* Filter (mock) */
+document.querySelectorAll('.filter-btn').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    // small visual feedback
+    b.style.borderColor = 'var(--accent)';
+    setTimeout(()=> b.style.borderColor = '', 600);
+  });
+});
+
+/* Contact form -> save draft & basic submit mock */
+const form = document.getElementById('contactForm');
+document.getElementById('saveDraft').addEventListener('click', ()=>{
+  const data = new FormData(form);
+  const obj = Object.fromEntries(data.entries());
+  localStorage.setItem('draft', JSON.stringify(obj));
+  alert('Draft saved (localStorage).');
+});
+window.addEventListener('DOMContentLoaded', ()=>{
+  const draft = localStorage.getItem('draft');
+  if(draft){
+    try{ const obj = JSON.parse(draft);
+      for(const k in obj) if(form[k]) form[k].value = obj[k];
+    }catch(e){}
+  }
+});
+form.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  // minimal validation demo
+  const data = new FormData(form);
+  if(!data.get('name') || !data.get('email')){ alert('Tolong isi nama & email'); return; }
+  alert('Pesan terkirim (demo). Terima kasih!');
+  form.reset();
+  localStorage.removeItem('draft');
+});
+
+/* Back to top */
+const toTop = document.getElementById('toTop');
+toTop.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+
+/* Smooth scroll for nav links */
+document.querySelectorAll('nav a').forEach(a=>{
+  a.addEventListener('click',(e)=>{
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+
+/* Buttons: open map, download pdf, docs (mocks) */
+document.getElementById('openMap').addEventListener('click', ()=> window.open('https://www.google.com/maps','_blank'));
+document.getElementById('downloadPDF').addEventListener('click', ()=>{
+  // generate minimal PDF-like file (data URL) - demo: create text file
+  const blob = new Blob(['Ghifary — Contact PDF demo'],{type:'application/pdf'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download='contact-demo.pdf'; a.click(); URL.revokeObjectURL(url);
+});
+document.getElementById('ctaDocs').addEventListener('click', ()=> alert('Open docs (demo)'));
+
+/* Book button -> small animated feedback */
+document.getElementById('bookBtn').addEventListener('click', ()=>{
+  const el = document.getElementById('bookBtn');
+  el.animate([{transform:'scale(1)'},{transform:'scale(0.96)'},{transform:'scale(1)'}],{duration:260,easing:'ease-out'});
+  alert('Booking flow demo (popup).');
+});
+
+/* small keyboard shortcut: "g" -> jump to gallery */
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'g'){ document.getElementById('gallery').scrollIntoView({behavior:'smooth'}); }
+});
+
+/* simple auto slider for travel-list images (cyclic) */
+const tImgs = document.querySelectorAll('.travel-card img');
+let tIndex = 0;
+setInterval(()=> {
+  tImgs.forEach((img,i)=> img.style.opacity = i === tIndex ? '1' : '0.5');
+  tIndex = (tIndex + 1) % tImgs.length;
+}, 2200);
+
+/* small reveal: change hero text with typing effect */
+function typeEffect(el, texts, speed=80, pause=1400){
+  let i=0, j=0, forward=true;
+  function step(){
+    if(!el) return;
+    el.textContent = texts[i].slice(0,j);
+    if(forward){ j++; if(j>texts[i].length){ forward=false; setTimeout(step, pause); return; } }
+    else{ j--; if(j<0){ forward=true; i=(i+1)%texts.length; setTimeout(step,300); return; } }
+    setTimeout(step, speed);
+  }
+  step();
+}
+const travelTitle = document.querySelector('#travel h1');
+typeEffect(travelTitle, ['Discover the Japan Alps','Explore Nagano Prefecture','Ski • Hike • Breathe'], 60, 1400);
+
+/* gallery click zoom (accessible) */
+document.querySelectorAll('.gallery img').forEach(img=>{
+  img.style.cursor='zoom-in';
+  img.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') img.click(); });
+  img.tabIndex = 0;
+});
+
+/* small accessible focus outlines by keyboard */
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Tab') document.body.classList.add('tabbing');
+});
+document.addEventListener('mousedown', ()=> document.body.classList.remove('tabbing'));
+
+/* ensure images already present use observer (if not lazy)")
+document.querySelectorAll('img').forEach(img=>{
+  if(!img.src && img.dataset && img.dataset.src){ /* handled by lazy loader */ }
+  else img.style.opacity = '1';
+});
+*/
+
+</script>
+</body>
+</html>
