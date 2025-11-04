@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main {
+        width: 80%;
+        height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0 auto;
+      }
+
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 220.52px;
+        min-height: 56px;
+        font-family: calibri;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        font-weight: 400;
+        text-decoration: none;
+        /* transition: all 0.5s linear; */
+      }
+
+      /* btn-primary  */
+      .btn-primary {
+        background-color: #198754;
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background-color: #157347;
+      }
+
+      .btn-primary:active {
+        box-shadow: 0 0 0 0.25rem rgba(60, 153, 110, 0.5);
+      }
+
+      span {
+        font-size: 20px;
+        padding: 0 10px;
+      }
+
+      ion-icon {
+        font-size: 2em;
+        transition: all 0.5s linear;
+      }
+
+      .btn:hover ion-icon {
+        transform: rotate(-90deg);
+      }
+
+      .yellow {
+        border: 2px solid #ffc107;
+        color: black;
+      }
+
+      .yellow:hover ion-icon {
+        transform: translateX(10px);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="main">
+      <div>
+        <a href="#" class="btn btn-primary">
+          <span>Learn More</span>
+          <ion-icon name="arrow-down-circle-sharp"></ion-icon>
+        </a>
+      </div>
+
+      <div>
+        <a href="#" class="btn yellow">
+          <span>Learn More</span>
+          <ion-icon name="arrow-forward-circle"></ion-icon>
+        </a>
+      </div>
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </body>
+</html>

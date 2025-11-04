@@ -75,6 +75,11 @@ h2 {
   color: #010101;
   border-top: 2px solid #dfdfdf;
   border-bottom: 2px solid #dfdfdf;
+  list-style-position: inside;
+}
+.teks{
+  background-color: #ffffff;
+  list-style-position: inside;
 }
 
 ol {
