@@ -19,7 +19,7 @@ body {
   background-color: white;
   color: #f0552a;
   padding: 20px 0;
- overflow: auto;
+  overflow: scroll;
 }
 .sidebar h2 {
   text-align: center;

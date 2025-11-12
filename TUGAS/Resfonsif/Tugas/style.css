@@ -1,0 +1,61 @@
+body {
+  background: #833ab4;
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto Slab';
+}
+
+.IMG {
+  display: flex;
+  gap: 40px;
+  height: 200px;
+  width: 100%;
+  justify-content: center;
+}
+
+.profile-img {
+  border-radius: 100%;
+  border: white 0.5rem solid;
+  box-shadow: #833ab4 3px 3px 20px;
+}
+
+.text {
+  color: white;
+  line-height: 1rem;
+  margin-top: 30px;
+}
+
+.text h2 {
+  font-weight: 400;
+}
+
+.action {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.button {
+  border-radius: 20px;
+  padding: 0.5em 1em;
+  border: none;
+  font-family: 'Roboto Slab';
+  text-decoration: none;
+}
+
+.download-cv {
+  background-color: #e6e9ec;
+  color: black;
+}
+
+.hire-me {
+  background-color: #38bc9b;
+  color: white;
+}
