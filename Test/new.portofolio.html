@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="generator" content="Primo" />
+    <title>Portfolio Template</title><!-- HEAD_svelte-fi2won_START -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAGP0lEQVR42q1XA7AkyxKdNedNT49xd69t32+bzzbXtm3btm3btr3Bb1zlz5PRPVF/FhfxJiJnprOr8pxEZVVZXvKpwVLHfGjcuLHbbre/r2naTP49wvKQpdSQh9DpuqwyO8Lj2QA8TmRTxM8zLPqH8lefCgNjwTrUGTomgCv5qH0b8BQMSs+lqs1UXUpV0/EsF3R3aCuEgmkwzRSXMX7QZkxp9ywcQE2q3Q7Qp5QLGFXsxLDcEn41Ux9p85BcatXsypfTrFcjMvpX6twOf2r0VuSq345ff713OyY72PveM71/BF0xtX9fYwNi+gLr+f/A6i9qhE6OU++AAAAAElFTkSuQmCC">
+    <link href="https://api.fontshare.com/v2/css?f[]=bespoke-serif@400,700,401,300,500,501,701,301&display=swap" rel="stylesheet">
+    <meta name="description" content="Cupidatat est tempor">
+    <style>
+        /* Reset & standardize default styles */
+        @import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;
+
+        /* Design tokens (apply to components) */
+        :root {
+            /* Custom theme options */
+            /* --color-accent: #5a5a5a;
+  --font-primary: "Bespoke Serif", serif;
+  --font-secondary: "Open Sans", sans-serif;
+  */
+
+            /* Base values */
+            /* --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+  --border-radius: 8px;
+  --border-color: #cbcace; */
+            --color-accent: #819DB1;
+            --font-primary: "Bespoke Serif", serif;
+            --font-secondary: 'Open Sans', sans-serif;
+            --color-accent-gray: #f3f3f3;
+            --color-shade: #f3f3f3;
+            --color-text-secondary: #2d3339;
+            --background: white;
+            --color: #222;
+            --padding: 6rem 2rem;
+            --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+            --border-radius: 8px;
+            --max-width: 900px;
+            --border-color: #c6ccd2;
+            --transition-time: 0.1s;
+            --transition: var(--transition-time) color, var(--transition-time) background-color, var(--transition-time) border-color, var(--transition-time) text-decoration-color, var(--transition-time) box-shadow, var(--transtion-time) transform;
+        }
+
+        /* Root element (use instead of `body`) */
+        #page {
+            font-family: var(--font-secondary), system-ui, sans-serif;
+            color: #222;
+            line-height: 1.5;
+            font-size: 1.125rem;
+            background: white;
+        }
+
+        /* Elements */
+        .section-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        a.link {
+            line-height: 1.25;
+            font-weight: 400;
+            border-bottom: 2px solid var(--color-accent, rebeccapurple);
+            transform: translateY(-2px);
+            /* move link back into place */
+            transition: var(--transition, 0.1s border);
+
+            &:hover {
+                border-color: transparent;
+            }
+        }
+
+        .heading {
+            font-family: var(--font-primary);
+            font-size: 2rem;
+            line-height: 1.15;
+            font-weight: 500;
+            margin-bottom: 1.25rem;
+        }
+
+        .button {
+            color: white;
+            background: var(--color-accent, rebeccapurple);
+            border-radius: 5px;
+            padding: 8px 20px;
+            transition: var(--transition, 0.1s box-shadow);
+            border: 0;
+            /* reset */
+
+            &:hover {
+                box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
+            }
+
+            &.inverted {
+                background: transparent;
+                color: var(--color-accent, rebeccapurple);
+            }
+        }
+
+        /* Content Section */
+        .section .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+
+            p {
+                padding: 0.25rem 0;
+            }
+
+            img {
+                width: 100%;
+                margin: 2rem 0;
+                box-shadow: var(--box-shadow);
+                border-radius: var(--border-radius);
+            }
+
+            a.link {}
+
+            h1 {
+                font-family: var(--font-primary);
+                font-size: 3rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-family: var(--font-primary);
+                font-size: 2rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-family: var(--font-primary);
+                font-size: 1.5rem;
+                font-weight: 500;
+                margin-bottom: 0.5rem;
+            }
+
+            ul {
+                list-style: disc;
+                padding: 0.5rem 0;
+                padding-left: 1.25rem;
+            }
+
+            ol {
+                list-style: decimal;
+                padding: 0.5rem 0;
+                padding-left: 1.25rem;
+            }
+
+            blockquote {
+                padding: 2rem;
+                box-shadow: var(--box-shadow);
+                border-radius: var(--border-radius);
+            }
+        }
+
+        section.has-content {
+            background: var(--background);
+        }
+    </style><!-- HEAD_svelte-fi2won_END -->
+    <style>
+        header.svelte-1bubp04.svelte-1bubp04 {
+            background: var(--color-shade)
+        }
+
+        .section-container.svelte-1bubp04.svelte-1bubp04 {
+            display: grid;
+            gap: 2rem
+        }
+
+        .section-container.svelte-1bubp04>div.svelte-1bubp04 {
+            display: grid;
+            gap: 1.5rem
+        }
+
+        .heading.svelte-1bubp04.svelte-1bubp04 {
+            font-size: 3rem
+        }
+
+        .heading.svelte-1bubp04.svelte-1bubp04:after {
+            display: none
+        }
+
+        .description.svelte-1bubp04 a {
+            transition: 0.1s border-color;
+            border-bottom: 2px solid var(--color-accent)
+        }
+
+        .description.svelte-1bubp04 a:hover {
+            border-color: transparent
+        }
+
+        ul.svelte-1bubp04.svelte-1bubp04 {
+            display: flex;
+            align-items: center
+        }
+
+        ul.svelte-1bubp04 li.svelte-1bubp04:not(:last-child) {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem
+        }
+
+        ul.svelte-1bubp04 li.svelte-1bubp04:not(:last-child):after {
+            content: "";
+            height: 20px;
+            border-right: 2px solid var(--color-accent);
+            padding-right: 1rem
+        }
+
+        ul.svelte-1bubp04 a.svelte-1bubp04 {
+            display: flex;
+            align-items: center
+        }
+
+        ul.svelte-1bubp04 a span.svelte-1bubp04 {
+            margin-left: 0.5rem
+        }
+
+        figure.svelte-1bubp04.svelte-1bubp04 {
+            position: relative;
+            margin-left: 18px
+        }
+
+        figure.square.svelte-1bubp04.svelte-1bubp04 {
+            margin-left: 0
+        }
+
+        figure.square.svelte-1bubp04 img.svelte-1bubp04 {
+            border-radius: var(--border-radius, 2rem)
+        }
+
+        figure.square.svelte-1bubp04 svg.svelte-1bubp04 {
+            display: none
+        }
+
+        figure.svelte-1bubp04 img.svelte-1bubp04 {
+            height: 226px;
+            width: 226px;
+            border-radius: 50%;
+            z-index: 1;
+            position: relative;
+            -o-object-fit: cover;
+            object-fit: cover
+        }
+
+        figure.svelte-1bubp04 svg.svelte-1bubp04 {
+            position: absolute;
+            top: 0;
+            left: -18px;
+            visibility: hidden
+        }
+
+        figure.svelte-1bubp04 svg circle.svelte-1bubp04 {
+            fill: #3e8660;
+            transition: 1s transform;
+            height: 100%;
+            width: 100%
+        }
+
+        figure.svelte-1bubp04 svg circle.svelte-1bubp04:nth-child(2) {
+            filter: brightness(0.75)
+        }
+
+        figure.svelte-1bubp04 svg circle.svelte-1bubp04:nth-child(3) {
+            filter: brightness(0.5)
+        }
+
+        figure.svelte-1bubp04 svg.show.svelte-1bubp04 {
+            visibility: visible
+        }
+
+        figure.svelte-1bubp04 svg.show circle.svelte-1bubp04:nth-child(1) {
+            transform: translateX(-18px)
+        }
+
+        figure.svelte-1bubp04 svg.show circle.svelte-1bubp04:nth-child(2) {
+            transform: translateX(-12px)
+        }
+
+        figure.svelte-1bubp04 svg.show circle.svelte-1bubp04:nth-child(3) {
+            transform: translateX(-6px)
+        }
+
+        @media(min-width: 900px) {
+            .section-container.svelte-1bubp04.svelte-1bubp04 {
+                gap: 6rem;
+                grid-template-columns: auto auto
+            }
+
+            .section-container.svelte-1bubp04>figure.svelte-1bubp04 {
+                grid-column: 2
+            }
+
+            .section-container.svelte-1bubp04>div.svelte-1bubp04 {
+                place-content: center;
+                grid-row: 1
+            }
+        }
+
+        .content.svelte-48vc0q {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--padding)
+        }
+
+        h1.svelte-48vc0q {
+            font-family: var(--font-primary);
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500
+        }
+
+        p.svelte-48vc0q:nth-child(3) {
+            margin-top: 1rem
+        }
+
+        .description.svelte-1n9fm19.svelte-1n9fm19 {
+            margin-bottom: 1.5rem
+        }
+
+        ul.svelte-1n9fm19.svelte-1n9fm19 {
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 1rem
+        }
+
+        ul.svelte-1n9fm19 li.svelte-1n9fm19 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600
+        }
+
+        ul.svelte-1n9fm19 li.svelte-1n9fm19:not(:last-child):after {
+            content: '';
+            border-right: 2px solid var(--color-accent);
+            display: inline-block;
+            height: 20px;
+            padding-left: 1rem;
+            margin-right: 1.5rem
+        }
+
+        section.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9 {
+            position: relative;
+            background: var(--color-shade)
+        }
+
+        .heading.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9 {
+            font-size: 1.75rem;
+            margin-bottom: 3.75rem
+        }
+
+        p.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9 {
+            margin-bottom: 1rem
+        }
+
+        a.link.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9:hover {
+            border-bottom: 2px solid var(--color-accent, rebeccapurple)
+        }
+
+        .heading.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9:after {
+            width: 66px;
+            border-bottom: 2px solid #222;
+            content: "";
+            display: block;
+            padding-top: 1rem;
+            margin-bottom: 1.5rem
+        }
+
+        select.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9 {
+            border-bottom: 3px solid var(--color-accent);
+            font-size: 1.125rem;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem
+        }
+
+        .itms.svelte-95jwv9 .title.svelte-95jwv9.svelte-95jwv9 {
+            font-size: 1.25rem;
+            font-family: var(--font-primary);
+            font-weight: 500;
+            margin-bottom: 1.5rem
+        }
+
+        .tabs.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9 {
+            display: none;
+            margin-bottom: 3rem;
+            font-size: 1.125rem;
+            font-weight: 400;
+            border-bottom: 1px solid var(--border-color)
+        }
+
+        .tabs.svelte-95jwv9 button.svelte-95jwv9.svelte-95jwv9:not(:last-child) {
+            margin-right: 2rem
+        }
+
+        .tabs.svelte-95jwv9 button.svelte-95jwv9.svelte-95jwv9 {
+            padding-bottom: 0.75rem;
+            border-bottom: 1.5px solid transparent;
+            transition: 0.2s border-color
+        }
+
+        .tabs.svelte-95jwv9 button.active.svelte-95jwv9.svelte-95jwv9 {
+            border-color: var(--color-accent)
+        }
+
+        .items.svelte-95jwv9 ul.svelte-95jwv9.svelte-95jwv9 {
+            gap: 3rem;
+            padding: 2rem 0rem;
+            border-bottom: 1px solid var(--border-color)
+        }
+
+        .items.svelte-95jwv9 ul a.svelte-95jwv9.svelte-95jwv9 {
+            line-height: 1.25;
+            font-weight: 400;
+            border-color: transparent;
+            transform: translateY(-2px);
+            transition: var(--transition,
+                    0.1s border)
+        }
+
+        figure.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9 {
+            display: grid
+        }
+
+        figure.svelte-95jwv9 img.svelte-95jwv9.svelte-95jwv9 {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 1rem;
+            aspect-ratio: 1.5;
+            -o-object-fit: cover;
+            object-fit: cover
+        }
+
+        #modal.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9 {
+            position: fixed;
+            inset: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem
+        }
+
+        #modal.svelte-95jwv9 figure.svelte-95jwv9.svelte-95jwv9 {
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            z-index: 1
+        }
+
+        #modal.svelte-95jwv9 figure.svelte-95jwv9 img.svelte-95jwv9 {
+            width: 100%
+        }
+
+        #modal.svelte-95jwv9 figure button.svelte-95jwv9.svelte-95jwv9 {
+            position: absolute;
+            height: 2rem;
+            width: 2rem;
+            top: 0.5rem;
+            left: 0.5rem;
+            border-radius: 50%
+        }
+
+        @media(min-width: 700px) {
+            select.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9 {
+                display: none
+            }
+
+            .tabs.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9 {
+                display: inline-flex
+            }
+
+            .links.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9 {
+                margin-bottom: 1rem
+            }
+
+            .items.svelte-95jwv9:nth-child(1) figure.svelte-95jwv9.svelte-95jwv9 {
+                background-color: red
+            }
+        }
+
+        @media(min-width: 1200px) {
+            figure.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9 {
+                grid-template-columns: 2fr;
+                gap: 4rem
+            }
+
+            figure.svelte-95jwv9 .itms.svelte-95jwv9.svelte-95jwv9 {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 4rem
+            }
+
+            img.svelte-95jwv9.svelte-95jwv9.svelte-95jwv9 {
+                box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+                border-radius: var(--border-radius);
+                align-self: center
+            }
+        }
+
+        .section-container.svelte-i8f0ga.svelte-i8f0ga {
+            padding-bottom: 1rem
+        }
+
+        .primary.svelte-i8f0ga.svelte-i8f0ga {
+            color: var(--color-text-secondary);
+            padding-bottom: 4rem
+        }
+
+        .primary.svelte-i8f0ga a.email.svelte-i8f0ga {
+            display: flex;
+            align-items: center
+        }
+
+        .primary.svelte-i8f0ga a.email span.svelte-i8f0ga {
+            margin-left: 0.75rem
+        }
+
+        .primary.svelte-i8f0ga a.email.svelte-i8f0ga svg {
+            transition: 0.2s transform
+        }
+
+        .primary.svelte-i8f0ga a.email.svelte-i8f0ga:hover svg {
+            transform: translateX(5px)
+        }
+
+        .secondary.svelte-i8f0ga.svelte-i8f0ga {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            gap: 1rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem
+        }
+
+        .copyright.svelte-i8f0ga.svelte-i8f0ga {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary, #2D3339)
+        }
+
+        .primo.svelte-i8f0ga.svelte-i8f0ga {
+            font-weight: 600;
+            font-size: 0.75rem
+        }
+
+        .primo.svelte-i8f0ga a.svelte-i8f0ga {
+            text-decoration: underline
+        }
+
+        ul.svelte-i8f0ga.svelte-i8f0ga {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 1.5rem;
+            list-style: none
+        }
+
+        ul.svelte-i8f0ga a.svelte-i8f0ga {
+            transition: var(--transition)
+        }
+
+        ul.svelte-i8f0ga a.svelte-i8f0ga:hover {
+            color: var(--color-accent)
+        }
+
+        @media(min-width: 600px) {
+            .secondary.svelte-i8f0ga.svelte-i8f0ga {
+                flex-direction: row
+            }
+
+            ul.svelte-i8f0ga.svelte-i8f0ga {
+                font-size: 1.25rem
+            }
+        }
+    </style>
+</head>
+
+<body id="page">
+
+    <div class="section" id="section-b892a4d3-8a95-446d-89f2-e3432235a424">
+        <div class="component">
+            <header class="svelte-1bubp04">
+                <div class="section-container svelte-1bubp04">
+                    <figure class="svelte-1bubp04"><img src="https://github.com/lebombastic/lebombastic/raw/main/Ali66-tiny.JPEG" alt="" class="svelte-1bubp04">
+                        <svg height="226" width="226" class="svelte-1bubp04">
+                            <circle cx="131" cy="113" r="113" class="svelte-1bubp04"></circle>
+                            <circle cx="131" cy="113" r="113" class="svelte-1bubp04"></circle>
+                            <circle cx="131" cy="113" r="113" class="svelte-1bubp04"></circle>
+                        </svg>
+                    </figure>
+                    <div class="svelte-1bubp04">
+                        <h1 class="heading svelte-1bubp04"></h1>
+                        <div class="description svelte-1bubp04"><!-- HTML_TAG_START -->
+                            <p>Front-End Web Developer | Senior IT information</p><!-- HTML_TAG_END -->
+                        </div>
+                        <ul class="social svelte-1bubp04">
+                            <li class="svelte-1bubp04"><a href="https://instagram.com/lemeabdo" class="svelte-1bubp04">
+                                    <span class="svelte-1bubp04">Instagram</span></a>
+                            </li>
+                            <li class="svelte-1bubp04"><a href="https://github.com/lebombastic" class="svelte-1bubp04">
+                                    <span class="svelte-1bubp04">Github</span></a>
+                            </li>
+                            <li class="svelte-1bubp04"><a href="/" class="svelte-1bubp04">
+                                    <span class="svelte-1bubp04">Freelance</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+    <div class="section" id="section-4b12ca76-f4c9-496f-a5d2-76f2b6aedf34">
+        <div class="component">
+            <div class="section">
+                <div class="section-container content svelte-48vc0q">
+                    <h1 class="svelte-48vc0q">About Me</h1>
+                    <p class="svelte-48vc0q"><!-- HTML_TAG_START -->
+                    <p>Self-taught frontend developer who has started his journey on late 2019. Building many projects &amp; websites with the latest modern technologies such as Svelte, Pure CSS and some ReactJS </p><!-- HTML_TAG_END --></p>
+                    <p class="svelte-48vc0q">Based in Egypt Currently</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="section-c838f8ca-950f-4b79-84b6-c94d669befc9">
+        <div class="component">
+            <section class="section-container">
+                <h2 class="heading">Skills</h2>
+                <div class="description svelte-1n9fm19"><!-- HTML_TAG_START -->
+                    <p>Some technologies i’ve been using lately:</p><!-- HTML_TAG_END -->
+                </div>
+                <ul class="svelte-1n9fm19">
+                    <li class="svelte-1n9fm19">
+                        <span>JavaScript</span>
+                    </li>
+                    <li class="svelte-1n9fm19">
+                        <span>Svelte</span>
+                    </li>
+                    <li class="svelte-1n9fm19">
+                        <span>HTML</span>
+                    </li>
+                    <li class="svelte-1n9fm19">
+                        <span>CSS</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <div class="section" id="section-ecc3f8d8-9dda-4a1f-9699-3fc2e63fc2e3">
+        <div class="component">
+            <section class="svelte-95jwv9">
+                <div class="section-container">
+                    <h3 class="heading svelte-95jwv9">Featured Projects</h3>
+                    <div class="tabs svelte-95jwv9"><button class="svelte-95jwv9 active">Websites
+                        </button><button class="svelte-95jwv9">Web Apps
+                        </button></div>
+                    <select class="svelte-95jwv9">
+                        <option value="0">Websites</option>
+                        <option value="1">Web Apps</option>
+                    </select>
+                    <div class="items svelte-95jwv9">
+                        <figure class="svelte-95jwv9">
+                            <ul class="itms svelte-95jwv9">
+                                <div>
+                                    <h3 class="title svelte-95jwv9">Saint Andrew's Refugee Services</h3>
+                                    <p class="svelte-95jwv9">Saint Andrew's Refugee Services is a non-profit organization that helps refugee based in Egypt - i developed their website from scratch.</p>
+                                    <div class="links svelte-95jwv9"><a class="link svelte-95jwv9" href="https://stars-egypt.org">Visit here</a>
+                                    </div>
+                                </div>
+                                <img src="https://i.imgur.com/2o78hDm.png" class="svelte-95jwv9">
+                            </ul>
+                        </figure>
+                        <figure class="svelte-95jwv9">
+                            <ul class="itms svelte-95jwv9">
+                                <div>
+                                    <h3 class="title svelte-95jwv9">LivingHope Church</h3>
+                                    <p class="svelte-95jwv9">A Church website</p>
+                                    <div class="links svelte-95jwv9"><a class="link svelte-95jwv9" href="https://livinghopeepc.org/">Visit here</a>
+                                    </div>
+                                </div>
+                                <img src="https://i.imgur.com/6Sd29CY.png" class="svelte-95jwv9">
+                            </ul>
+                        </figure>
+                        <figure class="svelte-95jwv9">
+                            <ul class="itms svelte-95jwv9">
+                                <div>
+                                    <h3 class="title svelte-95jwv9">Birth Guardians Egypt</h3>
+                                    <p class="svelte-95jwv9">Birth Guardians support for women in egypt</p>
+                                    <div class="links svelte-95jwv9"><a class="link svelte-95jwv9" href="https://birthguardians-eg.org/">Visit here</a>
+                                    </div>
+                                </div>
+                                <img src="https://i.imgur.com/oYLTw8C.png" class="svelte-95jwv9">
+                            </ul>
+                        </figure>
+                        <figure class="svelte-95jwv9">
+                            <ul class="itms svelte-95jwv9">
+                                <div>
+                                    <h3 class="title svelte-95jwv9">Flower Shop</h3>
+                                    <p class="svelte-95jwv9">Flower Shop site for a local store - Develope by just plain css</p>
+                                    <div class="links svelte-95jwv9"><a class="link svelte-95jwv9" href="https://cassiopea.vercel.app/">Visit here</a>
+                                    </div>
+                                </div>
+                                <img src="https://i.imgur.com/LDxhTuy.png" class="svelte-95jwv9">
+                            </ul>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="section" id="section-2ab7ad40-341e-4ac6-88dd-2db7b8a3795d">
+        <div class="component">
+            <footer>
+                <div class="section-container svelte-i8f0ga">
+                    <div class="primary svelte-i8f0ga">
+                        <h2 class="heading">Get in touch</h2>
+                        <a class="email svelte-i8f0ga" href="mailto:me.abdelfatah@gmail.com | dev@abdelfatax.com">
+                            <span class="svelte-i8f0ga">me.abdelfatah@gmail.com | dev@abdelfatax.com</span></a>
+                    </div>
+                    <hr>
+                    <div class="secondary svelte-i8f0ga"><span class="copyright svelte-i8f0ga">Copyright 2023</span>
+                        <span class="primo svelte-i8f0ga"><a href="https://primocms.org" class="svelte-i8f0ga">Primo</a> Powered </span>
+                        <ul class="svelte-i8f0ga">
+                            <li><a href="https://instagram.com/lemeabdo" aria-label="mdi:instagram" class="svelte-i8f0ga"></a>
+                            </li>
+                            <li><a href="https://github.com/lebombastic" aria-label="mdi:github" class="svelte-i8f0ga"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script type="module">
+        const path = window.location.pathname === '/' ? '' : window.location.pathname
+        const [{
+            default: App
+        }] = await Promise.all([
+            import(path + '/_module.js')
+        ]).catch(e => console.error(e))
+        new App({
+            target: document.querySelector('body'),
+            hydrate: true,
+        })
+    </script>
+</body>
+
+</html>
