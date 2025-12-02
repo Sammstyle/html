@@ -1,0 +1,94 @@
+:root {
+            --color-dark-start: #4B79A1;
+            --color-dark-end: #283E51;
+            --color-text-light: #FFFFFF;
+            --color-text-dark: #1A2C42;
+            --colo-text-pink:
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f4f8;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .poster {
+            padding: 20px;
+           background-image: url("./Frame\ 3\ \(1\).png");
+            box-shadow: 0 15px 40px rgba(40, 62, 81, 0.4);
+            border-radius: 15px;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+        }
+
+        .poster:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 60px rgba(40, 62, 81, 0.6);
+        }
+
+        .card-poster {
+            width: 350px;
+            height: 500px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+            color: var(--color-text-light);
+        }
+
+        .card-poster h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 2.5em;
+            color: var(--color-text-light);
+            margin-top: 0;
+            padding: 5px 10px;
+            background-color: transparent;
+            font-weight: 700;
+        }
+
+        .card-poster h3 {
+            font-size: 0.9em;
+            color: var(--color-text-light);
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .card-poster p {
+            font-size: 1.3em;
+            font-style: italic;
+            color: var(--color-text-light);
+            line-height: 1.5;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-poster button {
+            padding: 10px 20px;
+            border: 2px solid var(--color-text-light);
+            border-radius: 25px;
+            background-color: transparent;
+            color: var(--color-text-light);
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s, color 0.3s;
+        }
+
+        .card-poster button:hover {
+            background-color:var(--color-text-dark);
+            color: var(--color-text-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
