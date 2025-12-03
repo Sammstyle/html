@@ -1,0 +1,73 @@
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background-color: #18181814;
+
+  align-items: center;
+}
+h3,
+p {
+  margin: 0;
+}
+header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+main {
+  margin: 0 auto;
+  align-items: center;
+  box-sizing: border-box;
+  display: 100%;
+  height: 100%;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  gap: 32px;
+  max-width: 1000px;
+}
+.card {
+  width: 500px;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -2px 4px 12px 0px #18181814;
+}
+.product-image {
+  display: block;
+}
+.product-image img {
+  width: 100%;
+}
+.text-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+  justify-content: space-between;
+}
+.text-body .top {
+  align-items: start;
+  display: flex;
+  justify-content: space-between;
+}
+.text-body .bottom {
+  display: flex;
+  color: gray;
+}
+
+@media screen and (max-width: 800px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .card {
+    margin: 0 auto;
+    max-width: 350px;
+  }
+}
