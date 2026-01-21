@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h1 id="judul">Halo, Selamat Datang!</h1>
+    <p class="deskripsi">Ini adalah paragraf awal.</p>
+
+    <button id="tombolGanti">Klik untuk Mengubah</button>
+
+    <script>
+      const judul = document.getElementById("judul");
+      const deskripsi = document.querySelector(".deskripsi");
+      const tombol = document.getElementById("tombolGanti");
+      tombol.addEventListener("click", function () {
+        judul.innerText = "Teks Berhasil Diubah!";
+        judul.style.color = "blue"; 
+        deskripsi.innerHTML =
+          "Sekarang teks ini telah <strong>dimanipulasi</strong> oleh DOM.";
+      });
+    </script>
+  </body>
+</html>
