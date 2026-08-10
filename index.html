@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burger Club</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Poppins, sans-serif;
+        background: #12372a;
+      }
+
+      .header {
+        padding: 25px 8%;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        color: #fbfada;
+        font-size: 45px;
+        font-weight: bold;
+        letter-spacing: 8px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 60px;
+      }
+
+      nav ul li {
+        color: #fbfada;
+        cursor: pointer;
+      }
+
+      .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 8%;
+      }
+
+      .hero-text {
+        width: 60%;
+      }
+
+      .hero-text h2 {
+        color: #a8b79f;
+        font-size: 55px;
+        letter-spacing: 10px;
+      }
+
+      .hero-text h1 {
+        color: #fbfada;
+        font-size: 110px;
+        font-family: poppins, sans-serif;
+        line-height: 1;
+      }
+
+      .hero-text p {
+        color: #a8b79f;
+        margin: 20px 0;
+        font-size: 22px;
+      }
+
+      .hero-text button {
+        padding: 12px 30px;
+        border: none;
+        border-radius: 30px;
+        background: #fbfada;
+        color: #12372a;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .hero-image {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hero-image img {
+        width: 100%;
+        max-width: 600px;
+      }
+      .food {
+        padding: 200px 8%;
+      }
+
+      .food h2 {
+        text-align: center;
+        color: white;
+        font-size: 60px;
+        margin-bottom: 50px;
+      }
+
+      .food-container {
+        display: flex;
+        justify-content: center;
+        gap: 35px;
+        align-items: center;
+      }
+
+      .food-card {
+        width: 200px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .food-card-center {
+        width: 250px;
+        padding: 30px 20px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .food-card img {
+        width: 150px;
+      }
+
+      .food-card-center img {
+        width: 180px;
+      }
+
+      .food-card h3{
+        color: white;
+        font-size: 14px;
+      }
+      .food-card-center h3 {
+        color: white;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav>
+        <div class="logo">BURGUR</div>
+
+        <ul>
+          <li>Home</li>
+          <li>Menu</li>
+          <li>About</li>
+          <li>Shop</li>
+        </ul>
+      </nav>
+    </header>
+    <!--Hero section-->
+    <section class="hero">
+      <div class="hero-text">
+        <h2>THE ULTIMATE</h2>
+
+        <h1>Burger Club</h1>
+
+        <p>Savor the Flavor, Join the Club!</p>
+      </div>
+
+      <div class="hero-image">
+        <img src="./Group 7.png" alt="Burger" />
+      </div>
+    </section>
+    <!--card food-->
+    <section class="food">
+      <h2>MENU</h2>
+
+      <div class="food-container">
+        <div class="food-card">
+          <img src="./burger.png" alt="" />
+          <h3>BURGER</h3>
+        </div>
+
+        <div class="food-card-center">
+          <img src="./sides.png" alt="" />
+          <h3>SIDES</h3>
+        </div>
+
+        <div class="food-card">
+          <img src="./fries.png" alt="" />
+          <h3>FRIES</h3>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
